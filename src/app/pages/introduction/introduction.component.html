@@ -1,0 +1,49 @@
+<main class="introduction" aria-labelledby="intro-title">
+  <header>
+    <p>{{ 'INTRO.EYEBROW' | translate }}</p>
+    <h1 id="intro-title">{{ 'INTRO.TITLE' | translate }}</h1>
+    <span>{{ 'INTRO.SUBTITLE' | translate }}</span>
+  </header>
+
+  @if (currentCard(); as card) {
+    <article class="message-card" aria-live="polite">
+      <div class="image-space">
+        @if (card.image) {
+          <img [src]="card.image" [alt]="card.title | translate" />
+        } @else {
+          <div class="placeholder" aria-hidden="true">
+            <span>♡</span>
+          </div>
+          <small>{{ 'INTRO.IMAGE_PLACEHOLDER' | translate }}</small>
+        }
+      </div>
+
+      <div class="card-copy">
+        <p class="card-eyebrow">{{ card.eyebrow | translate }}</p>
+        <h2>{{ card.title | translate }}</h2>
+        <p class="message">{{ card.message | translate }}</p>
+        <p class="counter">
+          {{
+            'INTRO.COUNTER'
+              | translate
+                : {
+                    current: currentIndex() + 1,
+                    total: cards.length,
+                  }
+          }}
+        </p>
+      </div>
+    </article>
+  }
+
+  <nav [attr.aria-label]="'INTRO.NAV_ARIA' | translate">
+    <button class="back" [disabled]="isFirst()" (click)="previous()">
+      <span aria-hidden="true">←</span>
+      {{ 'INTRO.PREVIOUS' | translate }}
+    </button>
+    <button class="next" (click)="next()">
+      {{ (isLast() ? 'INTRO.CONTINUE' : 'INTRO.NEXT') | translate }}
+      <span aria-hidden="true">→</span>
+    </button>
+  </nav>
+</main>

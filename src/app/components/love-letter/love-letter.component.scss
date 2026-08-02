@@ -36,7 +36,9 @@
   border: 0;
   border-radius: 0.5rem 0.5rem 1.2rem 1.2rem;
   box-shadow: 0 25px 40px #8b3a4a30;
-  transition: 0.7s transform;
+  transition:
+    margin-top 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 
   &::before,
   &::after {
@@ -52,7 +54,9 @@
   }
 
   &.open {
-    transform: translateY(15px);
+    // La solapa ocupa espacio por encima del sobre; este margen evita que cubra la introducción.
+    margin-top: 10rem;
+    transform: translateY(10px);
 
     .flap {
       z-index: 0;
@@ -74,7 +78,7 @@
   border-right: 165px solid transparent;
   border-left: 165px solid transparent;
   transform-origin: top;
-  transition: 0.7s transform;
+  transition: transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .seal {
@@ -91,6 +95,9 @@
   box-shadow: 0 4px 10px #74344155;
   translate: -50% -50%;
   place-items: center;
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 
 .hint {
@@ -116,12 +123,13 @@
   background-size: 100% 2rem;
   border-radius: 0.4rem;
   box-shadow: 0 25px 70px #6f33401c;
-  animation: paper 0.8s ease both;
+  animation: paper 1.15s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 
   p {
     margin: 0 0 1.35rem;
     color: #5e4342;
     font: 400 clamp(1rem, 2vw, 1.12rem) / 1.9 var(--serif);
+    animation: text-in 0.8s 0.65s ease both;
   }
 
   .salute {
@@ -153,7 +161,14 @@ footer {
 @keyframes paper {
   from {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-24px) scale(0.985);
+  }
+}
+
+@keyframes text-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
 }
 
@@ -163,7 +178,8 @@ footer {
     transition: none;
   }
 
-  .paper {
+  .paper,
+  .paper p {
     animation: none;
   }
 }

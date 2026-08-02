@@ -8,6 +8,13 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
+      import('./pages/introduction/introduction.component').then(
+        (component) => component.IntroductionComponent,
+      ),
+  },
+  {
+    path: 'pregunta',
+    loadComponent: () =>
       import('./pages/home-question/home-question.component').then(
         (component) => component.HomeQuestionComponent,
       ),

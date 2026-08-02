@@ -31,6 +31,7 @@ Visita `http://localhost:4200`. El servidor actualiza la página cuando guardas 
 | Necesito cambiar…                          | Archivo                                                  |
 | ------------------------------------------ | -------------------------------------------------------- |
 | Nombre, carta, razones, recuerdos y fechas | `src/app/config/love.config.ts`                          |
+| Tarjetas e imágenes de introducción        | `src/app/config/love.config.ts`                          |
 | Pregunta y comportamiento del botón “No”   | `src/app/pages/home-question/home-question.component.ts` |
 | Archivo, volumen y reproducción de música  | `src/app/services/music.service.ts`                      |
 | Ilustración principal                      | `public/assets/images/chibi-bears.png`                   |
@@ -110,6 +111,21 @@ detectar errores de sintaxis.
 
 La ruta comienza con `assets/`, no con `public/`. Angular copia el contenido de `public`
 a la raíz del sitio durante el build.
+
+Las tarjetas introductorias funcionan igual. Copia la imagen a `public/assets/images` y
+descomenta o agrega `image` dentro de `introCards`:
+
+```typescript
+{
+  eyebrow: 'INTRO.CARDS.WELCOME.EYEBROW',
+  title: 'INTRO.CARDS.WELCOME.TITLE',
+  message: 'INTRO.CARDS.WELCOME.MESSAGE',
+  image: 'assets/images/bienvenida.jpg',
+}
+```
+
+Si `image` no está presente, la tarjeta muestra un marcador de posición. Las frases se
+editan en los dos archivos JSON de traducción, conservando las claves.
 
 ### Música
 

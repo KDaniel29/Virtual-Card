@@ -8,6 +8,26 @@ import { LoveConfig } from '../models/content.models';
  * `public/assets/images/foto-1.jpg` se escribe aquí como `assets/images/foto-1.jpg`.
  */
 export const LOVE_CONFIG: LoveConfig = {
+  introCards: [
+    {
+      eyebrow: 'INTRO.CARDS.WELCOME.EYEBROW',
+      title: 'INTRO.CARDS.WELCOME.TITLE',
+      message: 'INTRO.CARDS.WELCOME.MESSAGE',
+      // image: 'assets/images/bienvenida.jpg',
+    },
+    {
+      eyebrow: 'INTRO.CARDS.DETAILS.EYEBROW',
+      title: 'INTRO.CARDS.DETAILS.TITLE',
+      message: 'INTRO.CARDS.DETAILS.MESSAGE',
+      // image: 'assets/images/detalles.jpg',
+    },
+    {
+      eyebrow: 'INTRO.CARDS.SOMETHING_SPECIAL.EYEBROW',
+      title: 'INTRO.CARDS.SOMETHING_SPECIAL.TITLE',
+      message: 'INTRO.CARDS.SOMETHING_SPECIAL.MESSAGE',
+      // image: 'assets/images/algo-especial.jpg',
+    },
+  ],
   recipient: 'CONFIG.RECIPIENT',
   sender: 'CONFIG.SENDER',
   eyebrow: 'HOME.EYEBROW',

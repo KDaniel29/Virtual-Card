@@ -16,7 +16,7 @@ un error 404. Por ejemplo, la carta se representa como `/#/carta`.
 ## Flujo de pantallas
 
 ```text
-/(pregunta) ── Sí ──> /celebracion ── Abrir carta ──> /carta
+/(introducción) ── Continuar ──> /pregunta ── Sí ──> /celebracion ──> /carta
                                                     │
                                                     ├── carta
                                                     ├── momentos
@@ -30,7 +30,8 @@ Angular descarga cada pantalla solamente cuando se visita.
 
 ## Componentes
 
-- `pages/HomeQuestionComponent`: pregunta inicial y movimiento acotado del botón “No”.
+- `pages/IntroductionComponent`: tarjetas previas, progreso e imágenes opcionales.
+- `pages/HomeQuestionComponent`: pregunta principal y movimiento acotado del botón “No”.
 - `pages/CelebrationComponent`: confirmación visual y acceso a la carta.
 - `pages/LetterPageComponent`: composición y navegación vertical de la carta.
 - `LoveLetterComponent`: sobre, apertura y contenido de la carta.

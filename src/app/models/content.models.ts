@@ -5,6 +5,14 @@ export interface Memory {
   image?: string;
 }
 
+/** Tarjeta del recorrido introductorio; `image` puede agregarse posteriormente. */
+export interface IntroCard {
+  eyebrow: string;
+  title: string;
+  message: string;
+  image?: string;
+}
+
 /** Entrada individual de la línea del tiempo. */
 export interface TimelineEvent {
   date: string;
@@ -18,6 +26,7 @@ export interface TimelineEvent {
  * campos faltantes o nombres escritos incorrectamente durante la compilación.
  */
 export interface LoveConfig {
+  introCards: IntroCard[];
   recipient: string;
   sender: string;
   eyebrow: string;

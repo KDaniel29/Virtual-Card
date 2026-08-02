@@ -7,6 +7,34 @@
     "ES": "ES",
     "EN": "EN"
   },
+  "INTRO": {
+    "EYEBROW": "Before I ask you something",
+    "TITLE": "Hello, my favorite person",
+    "SUBTITLE": "I prepared a few words for you. Take all the time you need to read them.",
+    "IMAGE_PLACEHOLDER": "Space for your image",
+    "NAV_ARIA": "Navigate between messages",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "CONTINUE": "Continue",
+    "COUNTER": "Message {{current}} of {{total}}",
+    "CARDS": {
+      "WELCOME": {
+        "EYEBROW": "A little beginning",
+        "TITLE": "I'm so glad you are here",
+        "MESSAGE": "I wanted to make something different for you: a quiet little place, made with love, where I could share a few things that are sometimes difficult to fit into a single message."
+      },
+      "DETAILS": {
+        "EYEBROW": "All those little things",
+        "TITLE": "You make me smile",
+        "MESSAGE": "Simple moments become special when I share them with you. Your words, your playful ideas, and the way you make my days brighter mean so much to me."
+      },
+      "SOMETHING_SPECIAL": {
+        "EYEBROW": "One last thing",
+        "TITLE": "This comes from the heart",
+        "MESSAGE": "I did not want the next question to be just a sentence. I wanted you to know that behind it there is hope, respect, and a real wish to keep making memories with you."
+      }
+    }
+  },
   "CONFIG": {
     "RECIPIENT": "My favorite person",
     "SENDER": "Kevin Daniel"

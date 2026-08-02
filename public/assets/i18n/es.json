@@ -7,6 +7,34 @@
     "ES": "ES",
     "EN": "EN"
   },
+  "INTRO": {
+    "EYEBROW": "Antes de hacerte una pregunta",
+    "TITLE": "Hola, señorita Julied.",
+    "SUBTITLE": "Preparé unas palabras para usted. Tome tu tiempo para leerlas. ♥️",
+    "IMAGE_PLACEHOLDER": "Espacio para tu imagen",
+    "NAV_ARIA": "Navegación entre mensajes",
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente",
+    "CONTINUE": "Continuar",
+    "COUNTER": "Mensaje {{current}} de {{total}}",
+    "CARDS": {
+      "WELCOME": {
+        "EYEBROW": "Gracias por invitarme",
+        "TITLE": "Qué bonito estar aquí juntos",
+        "MESSAGE": "Le preparé este proyecto pequeñito pero muy especial para que pueda volver a verlo cada que tenga ganas de recordar el gran cariño, amor y aprecio que tengo por usted."
+      },
+      "DETAILS": {
+        "EYEBROW": "Esas pequeñas cosas tuyas",
+        "TITLE": "Me haces sonreír con solo escucharte",
+        "MESSAGE": "El solo escuchar tu voz llena de emoción cada que me explicas algo que te apasiona es maravilloso para mí y agradezco todo lo que ha compartido conmigo. Gracias por mostrarme cosas de mí a las que nunca les había puesto atención y darme esa consciencia acerca de todos los temas sociales que nos rodean."
+      },
+      "SOMETHING_SPECIAL": {
+        "EYEBROW": "Una última cosa",
+        "TITLE": "Esto viene del fondo de mi corazón",
+        "MESSAGE": "No quería que la siguiente pregunta fuera solamente una frase cliché. Quería que supieras que detrás de ella hay ilusión, respeto y muchas ganas de seguir creciendo y aprendiendo acerca de la vida, junto a ti. 💖"
+      }
+    }
+  },
   "CONFIG": {
     "RECIPIENT": "Mi persona favorita",
     "SENDER": "Kevin Daniel"
@@ -16,8 +44,8 @@
   },
   "HOME": {
     "EYEBROW": "Tengo una pregunta muy importante para ti…",
-    "QUESTION": "¿Puedo ser tu novio?",
-    "NOTE": "Una pregunta pequeñita, pero con todo mi corazón.",
+    "QUESTION": "¿Me daría el honor de ser su novio?",
+    "NOTE": "Una pregunta pequeñita, pero en la que estoy dispuesto a entregarle mi corazón, si lo acepta...",
     "YES": "Sí",
     "NO_OPTIONS": {
       "INITIAL": "No 🙈",
@@ -48,13 +76,13 @@
     "INTRO": "Toca el sobre. Hay algo que llevo tiempo queriendo decirte.",
     "OPENED": "Carta abierta",
     "TAP_TO_OPEN": "Toca para abrir",
-    "GREETING": "Mi persona favorita:",
+    "GREETING": "Para Mi brujita 💖:",
     "SIGNATURE": "Con mucho amor,",
     "CONTINUE": "Seguir leyendo nuestra historia",
     "PARAGRAPHS": {
-      "FIRST": "Desde que llegaste a mi vida, cada momento tiene un significado diferente. Me encanta compartir contigo mis días, mis pensamientos, mis risas y todas esas pequeñas cosas que hacen que estar a tu lado sea tan especial.",
-      "SECOND": "Quiero seguir creando recuerdos contigo, acompañarte en los días buenos y también estar presente cuando las cosas sean difíciles.",
-      "THIRD": "Por eso preparé esta pequeña carta. Tal vez sea una forma diferente de preguntarlo, pero quería que fuera algo especial y hecho con mucho cariño.",
+      "FIRST": "Espero que estés muy muy bien y que la estés pasando de maravilla. Agradezco mucho que me invvitaras a un momento tan especial para ti como lo es ver a Paty quién ha sido tu artista favorita desde niña en vivo por primera vez. 🥰",
+      "SECOND": "No puedo creer lo increíble que está siendo todo esto señorita.🥰 Sinceramente, si al niño de 10 años que le encantaba mirarte y que le gustaste muchísimo con tan solo verte, le dijeran que pasaría todo un fin de semana completo con su crush visitando museos, creando recuerdos, divirtiéndose todo el fin de semana juntos, nunca se lo creería. 🤭",
+      "THIRD": "De hecho, tampoco se creería que también le gustas, para mí eso siempre fue un sueño y hoy usted me lo está haciendo realidad. ✨ Siéndote sincero, yo te creía inalcanzable para mí y no tanto porque tuviera una baja autoestima o algo así, sino porque eres tan hermosa que penseé que no tendría oportunidad entre tantos hombres.",
       "FOURTH": "¿Quieres comenzar esta nueva historia conmigo? 💖"
     }
   },
