@@ -1,0 +1,40 @@
+.final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 5rem 1.2rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle at center, #fff 0, #fff5ef 60%, #f7ddd9);
+
+  > div {
+    width: min(720px, 100%);
+  }
+
+  p {
+    color: var(--wine);
+    font: 700 clamp(2rem, 5vw, 3.3rem) / 1.25 var(--script);
+  }
+}
+
+button {
+  padding: 1rem 1.5rem;
+  color: var(--wine);
+  font-weight: 800;
+  cursor: pointer;
+  background: #fff9f5;
+  border: 1px solid #d8aaa6;
+  border-radius: 999px;
+}
+
+footer {
+  margin-top: auto;
+  padding-top: 4rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+
+  span {
+    color: var(--rose);
+  }
+}

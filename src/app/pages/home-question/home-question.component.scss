@@ -1,0 +1,142 @@
+.welcome {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100svh;
+  padding: clamp(1rem, 4vw, 3rem);
+  place-items: center;
+}
+
+.question-card {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  width: min(950px, 100%);
+  min-height: min(680px, 88svh);
+  padding: clamp(1.4rem, 4vw, 3.7rem);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 2.5rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  animation: arrive 0.8s ease both;
+}
+
+.copy {
+  text-align: left;
+}
+
+.eyebrow {
+  color: var(--rose);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.note,
+.gentle {
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0.5rem 0 1rem;
+  color: var(--wine);
+  font-family: var(--script);
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  font-weight: 700;
+  line-height: 0.95;
+}
+
+.actions {
+  position: static;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  min-height: 6.5rem;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 1rem 1.7rem;
+  font: 700 1rem var(--sans);
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  transition:
+    0.25s transform,
+    0.25s box-shadow;
+}
+
+.yes {
+  z-index: 2;
+  color: white;
+  background: linear-gradient(135deg, var(--rose), #e97887);
+  box-shadow: 0 10px 26px rgba(201, 73, 94, 0.3);
+
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+.no {
+  color: var(--wine);
+  white-space: nowrap;
+  background: #fff4ef;
+  border: 1px solid #eed2cb;
+
+  &.free {
+    position: absolute;
+    z-index: 50;
+    box-shadow: 0 10px 24px rgba(119, 55, 71, 0.18);
+  }
+}
+
+.gentle {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}
+
+@media (max-width: 720px) {
+  .question-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  .art {
+    max-width: 22rem;
+    margin: auto;
+  }
+
+  .copy {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+    min-height: 7rem;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question-card {
+    animation: none;
+  }
+}

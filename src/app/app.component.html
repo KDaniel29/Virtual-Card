@@ -1,27 +1,3 @@
 <app-floating-hearts />
 <app-music-player />
-
-@switch (journey.step()) {
-  @case ('question') {
-    <app-home-question (accepted)="journey.goTo('celebration')" />
-  }
-
-  @case ('celebration') {
-    <app-celebration (openLetter)="journey.goTo('letter')" />
-  }
-
-  @case ('letter') {
-    <nav aria-label="Secciones de la carta">
-      <a href="#carta">Carta</a>
-      <a href="#momentos">Momentos</a>
-      <a href="#razones">Razones</a>
-      <a href="#historia">Historia</a>
-    </nav>
-
-    <app-love-letter (continued)="scrollTo('momentos')" />
-    <app-memory-gallery />
-    <app-reasons-i-love-you />
-    <app-relationship-timeline />
-    <app-final-message (reread)="scrollTo('carta')" />
-  }
-}
+<router-outlet />

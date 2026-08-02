@@ -1,35 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { FloatingHeartsComponent } from './components/floating-hearts.component';
-import { HomeQuestionComponent } from './components/home-question.component';
-import { CelebrationComponent } from './components/celebration.component';
-import { LoveLetterComponent } from './components/love-letter.component';
-import { MemoryGalleryComponent } from './components/memory-gallery.component';
-import { ReasonsILoveYouComponent } from './components/reasons-i-love-you.component';
-import { RelationshipTimelineComponent } from './components/relationship-timeline.component';
-import { FinalMessageComponent } from './components/final-message.component';
-import { MusicPlayerComponent } from './components/music-player.component';
-import { JourneyService } from './services/journey.service';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { FloatingHeartsComponent } from './shared/components/floating-hearts/floating-hearts.component';
+import { MusicPlayerComponent } from './shared/components/music-player/music-player.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    FloatingHeartsComponent,
-    HomeQuestionComponent,
-    CelebrationComponent,
-    LoveLetterComponent,
-    MemoryGalleryComponent,
-    ReasonsILoveYouComponent,
-    RelationshipTimelineComponent,
-    FinalMessageComponent,
-    MusicPlayerComponent,
-  ],
+  imports: [RouterOutlet, FloatingHeartsComponent, MusicPlayerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  readonly journey = inject(JourneyService);
-
-  scrollTo(id: string): void {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+/** Componente raíz: compone las etapas y las secciones de toda la experiencia. */
+export class AppComponent {}

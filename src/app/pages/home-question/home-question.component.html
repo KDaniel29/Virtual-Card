@@ -1,0 +1,28 @@
+<main class="welcome">
+  <section class="question-card" #card aria-labelledby="main-question">
+    <div class="art"><app-chibi-bears [compact]="true" /></div>
+    <div class="copy">
+      <p class="eyebrow">{{ config.eyebrow }}</p>
+      <h1 id="main-question">{{ config.question }}</h1>
+      <p class="note">Una pregunta pequeñita, pero con todo mi corazón.</p>
+      <div class="actions">
+        <button class="yes" (click)="accept()">Sí <span>💖</span></button>
+        <button
+          #noButton
+          class="no"
+          [class.free]="attempts() > 0 && attempts() < maxAttempts"
+          [style.left.px]="position().x"
+          [style.top.px]="position().y"
+          (pointerenter)="dodge($event)"
+          (pointerdown)="dodge($event)"
+          (click)="gentleNo()"
+        >
+          {{ noText() }}
+        </button>
+      </div>
+      @if (message()) {
+        <p class="gentle" role="status">{{ message() }}</p>
+      }
+    </div>
+  </section>
+</main>

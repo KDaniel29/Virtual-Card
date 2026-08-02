@@ -1,0 +1,12 @@
+<nav aria-label="Secciones de la carta">
+  <button (click)="scrollTo('carta')">Carta</button>
+  <button (click)="scrollTo('momentos')">Momentos</button>
+  <button (click)="scrollTo('razones')">Razones</button>
+  <button (click)="scrollTo('historia')">Historia</button>
+</nav>
+
+<app-love-letter (continued)="scrollTo('momentos')" />
+<app-memory-gallery />
+<app-reasons-i-love-you />
+<app-relationship-timeline />
+<app-final-message (reread)="scrollTo('carta')" />

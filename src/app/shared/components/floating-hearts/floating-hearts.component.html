@@ -1,0 +1,5 @@
+<div class="hearts" aria-hidden="true">
+  @for (heart of hearts; track $index) {
+    <span [style.--i]="$index">{{ heart }}</span>
+  }
+</div>

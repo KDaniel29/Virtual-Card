@@ -1,13 +1,22 @@
+/** Tarjeta de la galería. `image` es opcional para permitir un marcador de posición. */
 export interface Memory {
   title: string;
   caption: string;
   image?: string;
 }
+
+/** Entrada individual de la línea del tiempo. */
 export interface TimelineEvent {
   date: string;
   title: string;
   description: string;
 }
+
+/**
+ * Contrato del contenido personalizable de la aplicación.
+ * Mantener esta interfaz sincronizada con `LOVE_CONFIG` permite que TypeScript detecte
+ * campos faltantes o nombres escritos incorrectamente durante la compilación.
+ */
 export interface LoveConfig {
   recipient: string;
   sender: string;

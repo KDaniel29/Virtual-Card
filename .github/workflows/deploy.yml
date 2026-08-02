@@ -21,6 +21,8 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Build for the repository subpath
+        # GitHub Pages publica proyectos bajo /nombre-del-repositorio/.
+        # El base-href dinámico evita rutas rotas de JavaScript, CSS e imágenes.
         run: npm run build -- --base-href "/${{ github.event.repository.name }}/"
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4

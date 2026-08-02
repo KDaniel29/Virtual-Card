@@ -1,5 +1,11 @@
 import { LoveConfig } from '../models/content.models';
 
+/**
+ * ÚNICO ARCHIVO que debe editarse para personalizar los textos de la carta.
+ *
+ * Las rutas de imágenes son relativas a `public/`. Por ejemplo, el archivo
+ * `public/assets/images/foto-1.jpg` se escribe aquí como `assets/images/foto-1.jpg`.
+ */
 export const LOVE_CONFIG: LoveConfig = {
   recipient: 'Mi persona favorita',
   sender: 'Kevin Daniel',
@@ -20,6 +26,7 @@ export const LOVE_CONFIG: LoveConfig = {
     'Todos los momentos que compartimos.',
   ],
   memories: [
+    // Agrega `image: 'assets/images/mi-foto.jpg'` a cualquier recuerdo para mostrar una foto.
     { title: 'Nuestra primera foto', caption: 'Ese instante donde todo comenzó.' },
     { title: 'Un día especial', caption: 'Un día que guardo cerquita del corazón.' },
     { title: 'Mi recuerdo favorito', caption: 'Una sonrisa que nunca quiero olvidar.' },

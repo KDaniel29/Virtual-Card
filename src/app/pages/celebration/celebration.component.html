@@ -1,0 +1,14 @@
+<main class="celebration">
+  <div class="confetti" aria-hidden="true">
+    @for (piece of pieces; track $index) {
+      <i [style.--i]="$index">{{ piece }}</i>
+    }
+  </div>
+  <section>
+    <p class="kicker">Nuestro siguiente capítulo comienza aquí</p>
+    <h1>¡Sabía que dirías que sí! 💖</h1>
+    <app-chibi-bears [compact]="true" />
+    <p>Prometo cuidar esta historia con ternura, paciencia y muchas sonrisas.</p>
+    <button (click)="openLetter()">Abrir mi carta <span>💌</span></button>
+  </section>
+</main>
