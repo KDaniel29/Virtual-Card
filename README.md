@@ -37,8 +37,12 @@ Los archivos se generan en `dist/carta-virtual/browser`.
 
 1. Crea un repositorio y sube el proyecto a la rama `main`.
 2. En GitHub abre **Settings → Pages**.
-3. En **Build and deployment → Source**, selecciona **GitHub Actions**.
-4. Cada `push` a `main` ejecutará `.github/workflows/deploy.yml`.
+3. En **Build and deployment → Source**, selecciona **GitHub Actions**. Este paso es
+   obligatorio antes de ejecutar el workflow por primera vez; de lo contrario,
+   `actions/configure-pages` devolverá un error `Not Found`.
+4. Abre **Actions → Deploy Angular to GitHub Pages → Run workflow** para repetir el
+   primer despliegue, o envía un nuevo cambio a `main`.
+5. Cada `push` posterior a `main` ejecutará `.github/workflows/deploy.yml` automáticamente.
 
 El workflow detecta automáticamente el nombre del repositorio y compila con:
 
