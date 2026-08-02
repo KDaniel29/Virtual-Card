@@ -1,0 +1,136 @@
+{
+  "APP": {
+    "TITLE": "Nuestra pequeña historia"
+  },
+  "LANGUAGE": {
+    "LABEL": "Seleccionar idioma",
+    "ES": "ES",
+    "EN": "EN"
+  },
+  "CONFIG": {
+    "RECIPIENT": "Mi persona favorita",
+    "SENDER": "Kevin Daniel"
+  },
+  "BEARS": {
+    "ALT": "Dos ositos chibi enamorados sosteniendo un corazón"
+  },
+  "HOME": {
+    "EYEBROW": "Tengo una pregunta muy importante para ti…",
+    "QUESTION": "¿Puedo ser tu novio?",
+    "NOTE": "Una pregunta pequeñita, pero con todo mi corazón.",
+    "YES": "Sí",
+    "NO_OPTIONS": {
+      "INITIAL": "No 🙈",
+      "SURE": "¿Segura? 🥺",
+      "THINK_AGAIN": "Piénsalo otra vez 👉👈",
+      "MAYBE": "¿Quizá un poquito? 🌷",
+      "OTHER_BUTTON": "Mira bien el otro botón 💖",
+      "RESPECT": "Está bien, te escucho 🤍"
+    },
+    "RESPECT_MESSAGE": "No pasa nada. Lo más importante es que te sientas cómoda y puedas elegir con libertad. 🤍"
+  },
+  "CELEBRATION": {
+    "KICKER": "Nuestro siguiente capítulo comienza aquí",
+    "TITLE": "¡Sabía que dirías que sí!",
+    "MESSAGE": "Prometo cuidar esta historia con ternura, paciencia y muchas sonrisas.",
+    "OPEN_LETTER": "Abrir mi carta"
+  },
+  "NAV": {
+    "ARIA": "Secciones de la carta",
+    "LETTER": "Carta",
+    "MEMORIES": "Momentos",
+    "REASONS": "Razones",
+    "STORY": "Historia"
+  },
+  "LETTER": {
+    "FOR": "Para",
+    "TITLE": "Una carta para ti",
+    "INTRO": "Toca el sobre. Hay algo que llevo tiempo queriendo decirte.",
+    "OPENED": "Carta abierta",
+    "TAP_TO_OPEN": "Toca para abrir",
+    "GREETING": "Mi persona favorita:",
+    "SIGNATURE": "Con mucho amor,",
+    "CONTINUE": "Seguir leyendo nuestra historia",
+    "PARAGRAPHS": {
+      "FIRST": "Desde que llegaste a mi vida, cada momento tiene un significado diferente. Me encanta compartir contigo mis días, mis pensamientos, mis risas y todas esas pequeñas cosas que hacen que estar a tu lado sea tan especial.",
+      "SECOND": "Quiero seguir creando recuerdos contigo, acompañarte en los días buenos y también estar presente cuando las cosas sean difíciles.",
+      "THIRD": "Por eso preparé esta pequeña carta. Tal vez sea una forma diferente de preguntarlo, pero quería que fuera algo especial y hecho con mucho cariño.",
+      "FOURTH": "¿Quieres comenzar esta nueva historia conmigo? 💖"
+    }
+  },
+  "MEMORIES": {
+    "EYEBROW": "Álbum de los dos",
+    "TITLE": "Nuestros momentos",
+    "INTRO": "Pequeños espacios esperando nuestras fotos favoritas.",
+    "PLACEHOLDER": "Aquí va nuestra foto",
+    "ITEMS": {
+      "FIRST": {
+        "TITLE": "Nuestra primera foto",
+        "CAPTION": "Ese instante donde todo comenzó."
+      },
+      "SPECIAL": {
+        "TITLE": "Un día especial",
+        "CAPTION": "Un día que guardo cerquita del corazón."
+      },
+      "FAVORITE": {
+        "TITLE": "Mi recuerdo favorito",
+        "CAPTION": "Una sonrisa que nunca quiero olvidar."
+      },
+      "ADVENTURE": {
+        "TITLE": "Una aventura juntos",
+        "CAPTION": "Y todas las que aún nos esperan."
+      }
+    }
+  },
+  "REASONS": {
+    "EYEBROW": "Lo que haces especial",
+    "TITLE": "Lo que amo de ti",
+    "INTRO": "Podría seguir llenando tarjetas y nunca terminar.",
+    "ITEMS": {
+      "SMILE": "Tu sonrisa.",
+      "FEELING": "La forma en que me haces sentir.",
+      "PERSONALITY": "Tus ocurrencias.",
+      "LISTENING": "Tu manera de escucharme.",
+      "MOMENTS": "Todos los momentos que compartimos."
+    }
+  },
+  "TIMELINE": {
+    "EYEBROW": "Érase una vez…",
+    "TITLE": "Nuestra historia",
+    "ITEMS": {
+      "MEETING": {
+        "DATE": "Capítulo 01",
+        "TITLE": "El día que nos conocimos",
+        "DESCRIPTION": "Sin saberlo, comenzaba mi parte favorita de la historia."
+      },
+      "DATE": {
+        "DATE": "Capítulo 02",
+        "TITLE": "Nuestra primera salida",
+        "DESCRIPTION": "El tiempo pasó demasiado rápido a tu lado."
+      },
+      "SPECIAL": {
+        "DATE": "Capítulo 03",
+        "TITLE": "Cuando supe que eras especial",
+        "DESCRIPTION": "De pronto, todas las pequeñas cosas tenían tu nombre."
+      },
+      "TODAY": {
+        "DATE": "Hoy",
+        "TITLE": "El comienzo de una nueva historia",
+        "DESCRIPTION": "Una página en blanco para escribirla juntos."
+      }
+    }
+  },
+  "FINAL": {
+    "MESSAGE": "Gracias por llegar a mi vida. Espero que esta sea solamente la primera página de una historia muy bonita. 🐻💖🐻",
+    "REREAD": "Volver a leer la carta",
+    "FOOTER": "Hecho con paciencia, ternura y mucho amor"
+  },
+  "MUSIC": {
+    "PLAY": "Música",
+    "PAUSE": "Pausar",
+    "PLAY_ARIA": "Reproducir música",
+    "PAUSE_ARIA": "Pausar música",
+    "TITLE": "Música romántica",
+    "UNAVAILABLE": "Agrega tu canción en public/assets/audio/suerte.mp3"
+  }
+}

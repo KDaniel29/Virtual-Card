@@ -1,22 +1,22 @@
 <section class="section soft" id="momentos">
   <header>
-    <span>Álbum de los dos</span>
-    <h2>Nuestros momentos</h2>
-    <p>Pequeños espacios esperando nuestras fotos favoritas.</p>
+    <span>{{ 'MEMORIES.EYEBROW' | translate }}</span>
+    <h2>{{ 'MEMORIES.TITLE' | translate }}</h2>
+    <p>{{ 'MEMORIES.INTRO' | translate }}</p>
   </header>
   <div class="gallery">
     @for (memory of config.memories; track memory.title; let index = $index) {
       <article [class.tilt]="index % 2">
         <div class="photo">
           @if (memory.image) {
-            <img [src]="memory.image" [alt]="memory.title" />
+            <img [src]="memory.image" [alt]="memory.title | translate" />
           } @else {
             <span aria-hidden="true">{{ icons[index] }}</span>
-            <small>Aquí va nuestra foto</small>
+            <small>{{ 'MEMORIES.PLACEHOLDER' | translate }}</small>
           }
         </div>
-        <h3>{{ memory.title }}</h3>
-        <p>{{ memory.caption }}</p>
+        <h3>{{ memory.title | translate }}</h3>
+        <p>{{ memory.caption | translate }}</p>
       </article>
     }
   </div>

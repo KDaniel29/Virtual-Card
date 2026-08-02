@@ -1,15 +1,15 @@
 <section class="section" id="razones">
   <header>
-    <span>Lo que haces especial</span>
-    <h2>Lo que amo de ti</h2>
-    <p>Podría seguir llenando tarjetas y nunca terminar.</p>
+    <span>{{ 'REASONS.EYEBROW' | translate }}</span>
+    <h2>{{ 'REASONS.TITLE' | translate }}</h2>
+    <p>{{ 'REASONS.INTRO' | translate }}</p>
   </header>
   <div class="reasons">
     @for (reason of config.reasons; track reason; let index = $index) {
       <article>
         <b>0{{ index + 1 }}</b>
         <span>♥</span>
-        <p>{{ reason }}</p>
+        <p>{{ reason | translate }}</p>
       </article>
     }
   </div>

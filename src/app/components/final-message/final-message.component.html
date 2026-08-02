@@ -1,8 +1,8 @@
 <section class="final">
   <div>
     <app-chibi-bears [compact]="true" />
-    <p>{{ config.finalMessage }}</p>
-    <button (click)="reread.emit()">Volver a leer la carta ↟</button>
+    <p>{{ config.finalMessage | translate }}</p>
+    <button (click)="reread.emit()">{{ 'FINAL.REREAD' | translate }} ↟</button>
   </div>
-  <footer>Hecho con paciencia, ternura y mucho amor <span>♥</span></footer>
+  <footer>{{ 'FINAL.FOOTER' | translate }} <span>♥</span></footer>
 </section>

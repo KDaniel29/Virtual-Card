@@ -1,9 +1,11 @@
 import { Component, output, signal } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LOVE_CONFIG } from '../../config/love.config';
 
 @Component({
   selector: 'app-love-letter',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './love-letter.component.html',
   styleUrl: './love-letter.component.scss',
 })

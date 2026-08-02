@@ -11,7 +11,6 @@ export const routes: Routes = [
       import('./pages/home-question/home-question.component').then(
         (component) => component.HomeQuestionComponent,
       ),
-    title: 'Una pregunta para ti',
   },
   {
     path: 'celebracion',
@@ -19,7 +18,6 @@ export const routes: Routes = [
       import('./pages/celebration/celebration.component').then(
         (component) => component.CelebrationComponent,
       ),
-    title: '¡Dijiste que sí!',
   },
   {
     path: 'carta',
@@ -27,7 +25,6 @@ export const routes: Routes = [
       import('./pages/letter/letter-page.component').then(
         (component) => component.LetterPageComponent,
       ),
-    title: 'Nuestra historia',
   },
   { path: '**', redirectTo: '' },
 ];

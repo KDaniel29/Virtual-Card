@@ -1,10 +1,8 @@
 <button
   (click)="music.toggle()"
-  [attr.aria-label]="music.playing() ? 'Pausar música' : 'Reproducir música'"
-  [title]="
-    music.available() ? 'Música romántica' : 'Agrega tu canción en public/assets/audio/suerte.mp3'
-  "
+  [attr.aria-label]="(music.playing() ? 'MUSIC.PAUSE_ARIA' : 'MUSIC.PLAY_ARIA') | translate"
+  [title]="(music.available() ? 'MUSIC.TITLE' : 'MUSIC.UNAVAILABLE') | translate"
 >
   {{ music.playing() ? 'Ⅱ' : '♪' }}
-  <span>{{ music.playing() ? 'Pausar' : 'Música' }}</span>
+  <span>{{ (music.playing() ? 'MUSIC.PAUSE' : 'MUSIC.PLAY') | translate }}</span>
 </button>

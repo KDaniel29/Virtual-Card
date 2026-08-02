@@ -52,9 +52,20 @@ SCSS dentro de su propia carpeta.
 `LoveConfig` definida en `models/content.models.ts`. Si se agrega un campo obligatorio a
 la interfaz, TypeScript pedirá incorporarlo también en la configuración.
 
-Los arreglos se representan en las plantillas con `@for`. La pantalla principal utiliza
-`@switch` y las secciones opcionales utilizan `@if`; son bloques de control nativos de
-Angular moderno.
+Los arreglos se representan en las plantillas con `@for` y las secciones opcionales
+utilizan `@if`; son bloques de control nativos de Angular moderno.
+
+## Internacionalización
+
+`ngx-translate` carga los archivos de `public/assets/i18n` mediante HTTP. El español es
+el respaldo y `LanguageService` selecciona inicialmente la preferencia guardada o el
+idioma del navegador. El servicio sincroniza además el atributo `<html lang>` y el título
+del documento.
+
+Los componentes standalone que muestran texto importan `TranslatePipe`. Incluso los
+textos dinámicos de `LOVE_CONFIG` son claves; la traducción ocurre en la plantilla. Los
+nombres propios también usan una clave (`CONFIG.SENDER`) para mantener una única regla y
+permitir variantes por idioma cuando sean necesarias.
 
 ## Movimiento del botón “No”
 

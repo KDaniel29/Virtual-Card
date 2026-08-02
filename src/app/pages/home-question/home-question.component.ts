@@ -1,12 +1,13 @@
 import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LOVE_CONFIG } from '../../config/love.config';
 import { ChibiBearsComponent } from '../../shared/components/chibi-bears/chibi-bears.component';
 
 @Component({
   selector: 'app-home-question',
   standalone: true,
-  imports: [ChibiBearsComponent],
+  imports: [ChibiBearsComponent, TranslatePipe],
   templateUrl: './home-question.component.html',
   styleUrl: './home-question.component.scss',
 })
@@ -19,12 +20,12 @@ export class HomeQuestionComponent {
   readonly position = signal({ x: 0, y: 0 });
   readonly message = signal('');
   readonly texts = [
-    'No 🙈',
-    '¿Segura? 🥺',
-    'Piénsalo otra vez 👉👈',
-    '¿Quizá un poquito? 🌷',
-    'Mira bien el otro botón 💖',
-    'Está bien, te escucho 🤍',
+    'HOME.NO_OPTIONS.INITIAL',
+    'HOME.NO_OPTIONS.SURE',
+    'HOME.NO_OPTIONS.THINK_AGAIN',
+    'HOME.NO_OPTIONS.MAYBE',
+    'HOME.NO_OPTIONS.OTHER_BUTTON',
+    'HOME.NO_OPTIONS.RESPECT',
   ];
 
   @ViewChild('card') card?: ElementRef<HTMLElement>;
@@ -38,6 +39,7 @@ export class HomeQuestionComponent {
     return this.texts[Math.min(this.attempts(), this.texts.length - 1)];
   }
 
+  //Función ppara mover el botón de "No" a posiciones aleatorias.
   dodge(event: Event): void {
     if (this.attempts() >= this.maxAttempts) return;
     event.preventDefault();
@@ -57,9 +59,7 @@ export class HomeQuestionComponent {
 
   gentleNo(): void {
     if (this.attempts() >= this.maxAttempts) {
-      this.message.set(
-        'No pasa nada. Lo más importante es que te sientas cómoda y puedas elegir con libertad. 🤍',
-      );
+      this.message.set('HOME.RESPECT_MESSAGE');
     }
   }
 }

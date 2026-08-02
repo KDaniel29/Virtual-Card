@@ -5,10 +5,12 @@
     }
   </div>
   <section>
-    <p class="kicker">Nuestro siguiente capítulo comienza aquí</p>
-    <h1>¡Sabía que dirías que sí! 💖</h1>
+    <p class="kicker">{{ 'CELEBRATION.KICKER' | translate }}</p>
+    <h1>{{ 'CELEBRATION.TITLE' | translate }} 💖</h1>
     <app-chibi-bears [compact]="true" />
-    <p>Prometo cuidar esta historia con ternura, paciencia y muchas sonrisas.</p>
-    <button (click)="openLetter()">Abrir mi carta <span>💌</span></button>
+    <p>{{ 'CELEBRATION.MESSAGE' | translate }}</p>
+    <button (click)="openLetter()">
+      {{ 'CELEBRATION.OPEN_LETTER' | translate }} <span>💌</span>
+    </button>
   </section>
 </main>

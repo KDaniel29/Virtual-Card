@@ -1,59 +1,59 @@
 import { LoveConfig } from '../models/content.models';
 
 /**
- * ÚNICO ARCHIVO que debe editarse para personalizar los textos de la carta.
+ * Estructura del contenido de la carta. Los valores traducibles son claves que deben
+ * existir tanto en `public/assets/i18n/es.json` como en `en.json`.
  *
  * Las rutas de imágenes son relativas a `public/`. Por ejemplo, el archivo
  * `public/assets/images/foto-1.jpg` se escribe aquí como `assets/images/foto-1.jpg`.
  */
 export const LOVE_CONFIG: LoveConfig = {
-  recipient: 'Mi persona favorita',
-  sender: 'Kevin Daniel',
-  eyebrow: 'Tengo una pregunta muy importante para ti…',
-  question: '¿Puedo ser tu novio?',
+  recipient: 'CONFIG.RECIPIENT',
+  sender: 'CONFIG.SENDER',
+  eyebrow: 'HOME.EYEBROW',
+  question: 'HOME.QUESTION',
   letter: [
-    'Desde que llegaste a mi vida, cada momento tiene un significado diferente. Me encanta compartir contigo mis días, mis pensamientos, mis risas y todas esas pequeñas cosas que hacen que estar a tu lado sea tan especial.',
-    'Quiero seguir creando recuerdos contigo, acompañarte en los días buenos y también estar presente cuando las cosas sean difíciles.',
-    'Por eso preparé esta pequeña carta. Tal vez sea una forma diferente de preguntarlo, pero quería que fuera algo especial y hecho con mucho cariño.',
-    '¿Quieres comenzar esta nueva historia conmigo? 💖',
+    'LETTER.PARAGRAPHS.FIRST',
+    'LETTER.PARAGRAPHS.SECOND',
+    'LETTER.PARAGRAPHS.THIRD',
+    'LETTER.PARAGRAPHS.FOURTH',
   ],
-  signature: 'Con mucho amor,',
+  signature: 'LETTER.SIGNATURE',
   reasons: [
-    'Tu sonrisa.',
-    'La forma en que me haces sentir.',
-    'Tus ocurrencias.',
-    'Tu manera de escucharme.',
-    'Todos los momentos que compartimos.',
+    'REASONS.ITEMS.SMILE',
+    'REASONS.ITEMS.FEELING',
+    'REASONS.ITEMS.PERSONALITY',
+    'REASONS.ITEMS.LISTENING',
+    'REASONS.ITEMS.MOMENTS',
   ],
   memories: [
     // Agrega `image: 'assets/images/mi-foto.jpg'` a cualquier recuerdo para mostrar una foto.
-    { title: 'Nuestra primera foto', caption: 'Ese instante donde todo comenzó.' },
-    { title: 'Un día especial', caption: 'Un día que guardo cerquita del corazón.' },
-    { title: 'Mi recuerdo favorito', caption: 'Una sonrisa que nunca quiero olvidar.' },
-    { title: 'Una aventura juntos', caption: 'Y todas las que aún nos esperan.' },
+    { title: 'MEMORIES.ITEMS.FIRST.TITLE', caption: 'MEMORIES.ITEMS.FIRST.CAPTION' },
+    { title: 'MEMORIES.ITEMS.SPECIAL.TITLE', caption: 'MEMORIES.ITEMS.SPECIAL.CAPTION' },
+    { title: 'MEMORIES.ITEMS.FAVORITE.TITLE', caption: 'MEMORIES.ITEMS.FAVORITE.CAPTION' },
+    { title: 'MEMORIES.ITEMS.ADVENTURE.TITLE', caption: 'MEMORIES.ITEMS.ADVENTURE.CAPTION' },
   ],
   timeline: [
     {
-      date: 'Capítulo 01',
-      title: 'El día que nos conocimos',
-      description: 'Sin saberlo, comenzaba mi parte favorita de la historia.',
+      date: 'TIMELINE.ITEMS.MEETING.DATE',
+      title: 'TIMELINE.ITEMS.MEETING.TITLE',
+      description: 'TIMELINE.ITEMS.MEETING.DESCRIPTION',
     },
     {
-      date: 'Capítulo 02',
-      title: 'Nuestra primera salida',
-      description: 'El tiempo pasó demasiado rápido a tu lado.',
+      date: 'TIMELINE.ITEMS.DATE.DATE',
+      title: 'TIMELINE.ITEMS.DATE.TITLE',
+      description: 'TIMELINE.ITEMS.DATE.DESCRIPTION',
     },
     {
-      date: 'Capítulo 03',
-      title: 'Cuando supe que eras especial',
-      description: 'De pronto, todas las pequeñas cosas tenían tu nombre.',
+      date: 'TIMELINE.ITEMS.SPECIAL.DATE',
+      title: 'TIMELINE.ITEMS.SPECIAL.TITLE',
+      description: 'TIMELINE.ITEMS.SPECIAL.DESCRIPTION',
     },
     {
-      date: 'Hoy',
-      title: 'El comienzo de una nueva historia',
-      description: 'Una página en blanco para escribirla juntos.',
+      date: 'TIMELINE.ITEMS.TODAY.DATE',
+      title: 'TIMELINE.ITEMS.TODAY.TITLE',
+      description: 'TIMELINE.ITEMS.TODAY.DESCRIPTION',
     },
   ],
-  finalMessage:
-    'Gracias por llegar a mi vida. Espero que esta sea solamente la primera página de una historia muy bonita. 🐻💖🐻',
+  finalMessage: 'FINAL.MESSAGE',
 };

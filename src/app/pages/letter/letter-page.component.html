@@ -1,8 +1,8 @@
-<nav aria-label="Secciones de la carta">
-  <button (click)="scrollTo('carta')">Carta</button>
-  <button (click)="scrollTo('momentos')">Momentos</button>
-  <button (click)="scrollTo('razones')">Razones</button>
-  <button (click)="scrollTo('historia')">Historia</button>
+<nav [attr.aria-label]="'NAV.ARIA' | translate">
+  <button (click)="scrollTo('carta')">{{ 'NAV.LETTER' | translate }}</button>
+  <button (click)="scrollTo('momentos')">{{ 'NAV.MEMORIES' | translate }}</button>
+  <button (click)="scrollTo('razones')">{{ 'NAV.REASONS' | translate }}</button>
+  <button (click)="scrollTo('historia')">{{ 'NAV.STORY' | translate }}</button>
 </nav>
 
 <app-love-letter (continued)="scrollTo('momentos')" />

@@ -2,11 +2,11 @@
   <section class="question-card" #card aria-labelledby="main-question">
     <div class="art"><app-chibi-bears [compact]="true" /></div>
     <div class="copy">
-      <p class="eyebrow">{{ config.eyebrow }}</p>
-      <h1 id="main-question">{{ config.question }}</h1>
-      <p class="note">Una pregunta pequeñita, pero con todo mi corazón.</p>
+      <p class="eyebrow">{{ config.eyebrow | translate }}</p>
+      <h1 id="main-question">{{ config.question | translate }}</h1>
+      <p class="note">{{ 'HOME.NOTE' | translate }}</p>
       <div class="actions">
-        <button class="yes" (click)="accept()">Sí <span>💖</span></button>
+        <button class="yes" (click)="accept()">{{ 'HOME.YES' | translate }} <span>💖</span></button>
         <button
           #noButton
           class="no"
@@ -17,11 +17,11 @@
           (pointerdown)="dodge($event)"
           (click)="gentleNo()"
         >
-          {{ noText() }}
+          {{ noText() | translate }}
         </button>
       </div>
       @if (message()) {
-        <p class="gentle" role="status">{{ message() }}</p>
+        <p class="gentle" role="status">{{ message() | translate }}</p>
       }
     </div>
   </section>

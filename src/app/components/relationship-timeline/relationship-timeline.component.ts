@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { LOVE_CONFIG } from '../../config/love.config';
 
 @Component({
   selector: 'app-relationship-timeline',
   standalone: true,
+  imports: [TranslatePipe],
   templateUrl: './relationship-timeline.component.html',
   styleUrl: './relationship-timeline.component.scss',
 })

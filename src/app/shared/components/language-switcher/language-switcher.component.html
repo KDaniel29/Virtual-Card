@@ -1,0 +1,16 @@
+<div class="language-switcher" role="group" [attr.aria-label]="'LANGUAGE.LABEL' | translate">
+  <button
+    [class.active]="language.current() === 'es'"
+    [attr.aria-pressed]="language.current() === 'es'"
+    (click)="select('es')"
+  >
+    {{ 'LANGUAGE.ES' | translate }}
+  </button>
+  <button
+    [class.active]="language.current() === 'en'"
+    [attr.aria-pressed]="language.current() === 'en'"
+    (click)="select('en')"
+  >
+    {{ 'LANGUAGE.EN' | translate }}
+  </button>
+</div>

@@ -38,6 +38,8 @@ Visita `http://localhost:4200`. El servidor actualiza la página cuando guardas 
 | Colores y tipografías globales             | `src/styles.scss`                                        |
 | Rutas de navegación                        | `src/app/app.routes.ts`                                  |
 | Orden de las secciones                     | `src/app/pages/letter/letter-page.component.html`        |
+| Traducciones al español                    | `public/assets/i18n/es.json`                             |
+| Traducciones al inglés                     | `public/assets/i18n/en.json`                             |
 | Despliegue automático                      | `.github/workflows/deploy.yml`                           |
 
 La aplicación usa componentes independientes (_standalone_). `src/index.html` solo crea
@@ -45,6 +47,34 @@ La aplicación usa componentes independientes (_standalone_). `src/index.html` s
 la página asociada a la ruta activa.
 
 Consulta [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) para entender el flujo interno.
+
+## Traducciones español–inglés
+
+Todos los textos visibles se almacenan como claves equivalentes en:
+
+```text
+public/assets/i18n/es.json
+public/assets/i18n/en.json
+```
+
+Las plantillas resuelven esas claves mediante `TranslatePipe`:
+
+```html
+<h1>{{ 'HOME.QUESTION' | translate }}</h1>
+```
+
+Para modificar un texto, conserva la misma clave en ambos JSON y cambia únicamente su
+valor. Si agregas una frase nueva:
+
+1. Crea la clave en `es.json`.
+2. Crea exactamente la misma clave en `en.json`.
+3. Úsala en la plantilla con `| translate`.
+4. Si la clave se encuentra en un arreglo de `LOVE_CONFIG`, guarda la clave —no el texto
+   final— y aplica el pipe al mostrarla.
+
+El selector detecta inicialmente el idioma del navegador y guarda la preferencia en
+`localStorage`. El español se utiliza como respaldo. Para agregar otro idioma, crea su
+JSON, amplía `SupportedLanguage` y añade otro botón al selector.
 
 ## Personalizar la carta
 
@@ -175,6 +205,7 @@ actualiza la página o prueba una pestaña privada.
 ├── docs/                         # Documentación técnica adicional
 ├── public/assets/
 │   ├── audio/                    # Canción utilizada por MusicService
+│   ├── i18n/                     # Catálogos JSON español e inglés
 │   └── images/                   # Ilustraciones y fotografías
 ├── src/
 │   ├── app/

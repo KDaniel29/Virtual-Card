@@ -1,0 +1,136 @@
+{
+  "APP": {
+    "TITLE": "Our little story"
+  },
+  "LANGUAGE": {
+    "LABEL": "Select language",
+    "ES": "ES",
+    "EN": "EN"
+  },
+  "CONFIG": {
+    "RECIPIENT": "My favorite person",
+    "SENDER": "Kevin Daniel"
+  },
+  "BEARS": {
+    "ALT": "Two chibi teddy bears in love holding a heart"
+  },
+  "HOME": {
+    "EYEBROW": "I have a very important question for you…",
+    "QUESTION": "Can I be your boyfriend?",
+    "NOTE": "A tiny question, but one that comes from my whole heart.",
+    "YES": "Yes",
+    "NO_OPTIONS": {
+      "INITIAL": "No 🙈",
+      "SURE": "Are you sure? 🥺",
+      "THINK_AGAIN": "Think about it again 👉👈",
+      "MAYBE": "Maybe just a little? 🌷",
+      "OTHER_BUTTON": "Take another look at the other button 💖",
+      "RESPECT": "That's okay, I'm listening 🤍"
+    },
+    "RESPECT_MESSAGE": "That's okay. What matters most is that you feel comfortable and free to choose. 🤍"
+  },
+  "CELEBRATION": {
+    "KICKER": "Our next chapter begins here",
+    "TITLE": "I knew you would say yes!",
+    "MESSAGE": "I promise to care for this story with tenderness, patience, and lots of smiles.",
+    "OPEN_LETTER": "Open my letter"
+  },
+  "NAV": {
+    "ARIA": "Letter sections",
+    "LETTER": "Letter",
+    "MEMORIES": "Memories",
+    "REASONS": "Reasons",
+    "STORY": "Story"
+  },
+  "LETTER": {
+    "FOR": "For",
+    "TITLE": "A letter for you",
+    "INTRO": "Tap the envelope. There is something I have wanted to tell you for a while.",
+    "OPENED": "Letter opened",
+    "TAP_TO_OPEN": "Tap to open",
+    "GREETING": "My favorite person:",
+    "SIGNATURE": "With all my love,",
+    "CONTINUE": "Keep reading our story",
+    "PARAGRAPHS": {
+      "FIRST": "Since you came into my life, every moment has taken on a different meaning. I love sharing my days, thoughts, laughter, and all those little things that make being by your side so special.",
+      "SECOND": "I want to keep making memories with you, be there on the good days, and stay close when things get difficult.",
+      "THIRD": "That is why I made this little letter. It may be a different way to ask, but I wanted it to feel special and made with lots of love.",
+      "FOURTH": "Would you like to begin this new story with me? 💖"
+    }
+  },
+  "MEMORIES": {
+    "EYEBROW": "Our album",
+    "TITLE": "Our moments",
+    "INTRO": "Little spaces waiting for our favorite photos.",
+    "PLACEHOLDER": "Our photo goes here",
+    "ITEMS": {
+      "FIRST": {
+        "TITLE": "Our first photo",
+        "CAPTION": "That moment when everything began."
+      },
+      "SPECIAL": {
+        "TITLE": "A special day",
+        "CAPTION": "A day I keep close to my heart."
+      },
+      "FAVORITE": {
+        "TITLE": "My favorite memory",
+        "CAPTION": "A smile I never want to forget."
+      },
+      "ADVENTURE": {
+        "TITLE": "An adventure together",
+        "CAPTION": "And all the adventures still waiting for us."
+      }
+    }
+  },
+  "REASONS": {
+    "EYEBROW": "What makes you special",
+    "TITLE": "What I love about you",
+    "INTRO": "I could keep filling cards and never finish.",
+    "ITEMS": {
+      "SMILE": "Your smile.",
+      "FEELING": "The way you make me feel.",
+      "PERSONALITY": "Your playful personality.",
+      "LISTENING": "The way you listen to me.",
+      "MOMENTS": "Every moment we share."
+    }
+  },
+  "TIMELINE": {
+    "EYEBROW": "Once upon a time…",
+    "TITLE": "Our story",
+    "ITEMS": {
+      "MEETING": {
+        "DATE": "Chapter 01",
+        "TITLE": "The day we met",
+        "DESCRIPTION": "Without knowing it, my favorite part of the story was beginning."
+      },
+      "DATE": {
+        "DATE": "Chapter 02",
+        "TITLE": "Our first date",
+        "DESCRIPTION": "Time passed far too quickly by your side."
+      },
+      "SPECIAL": {
+        "DATE": "Chapter 03",
+        "TITLE": "When I knew you were special",
+        "DESCRIPTION": "Suddenly, all the little things had your name on them."
+      },
+      "TODAY": {
+        "DATE": "Today",
+        "TITLE": "The beginning of a new story",
+        "DESCRIPTION": "A blank page for us to write together."
+      }
+    }
+  },
+  "FINAL": {
+    "MESSAGE": "Thank you for coming into my life. I hope this is only the first page of a beautiful story. 🐻💖🐻",
+    "REREAD": "Read the letter again",
+    "FOOTER": "Made with patience, tenderness, and lots of love"
+  },
+  "MUSIC": {
+    "PLAY": "Music",
+    "PAUSE": "Pause",
+    "PLAY_ARIA": "Play music",
+    "PAUSE_ARIA": "Pause music",
+    "TITLE": "Romantic music",
+    "UNAVAILABLE": "Add your song at public/assets/audio/suerte.mp3"
+  }
+}

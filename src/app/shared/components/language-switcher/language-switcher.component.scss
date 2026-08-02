@@ -1,0 +1,29 @@
+.language-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 30;
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.25rem;
+  background: #fff9f2e8;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px #64323c18;
+  backdrop-filter: blur(10px);
+}
+
+button {
+  padding: 0.5rem 0.65rem;
+  color: var(--wine);
+  font: 800 0.7rem var(--sans);
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+
+  &.active {
+    color: #fff;
+    background: var(--wine);
+  }
+}

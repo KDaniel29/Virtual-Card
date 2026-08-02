@@ -1,8 +1,8 @@
 <section class="letter-stage" id="carta" aria-labelledby="letter-title">
   <div class="section-intro">
-    <span>Para {{ config.recipient }}</span>
-    <h2 id="letter-title">Una carta para ti</h2>
-    <p>Toca el sobre. Hay algo que llevo tiempo queriendo decirte.</p>
+    <span>{{ 'LETTER.FOR' | translate }} {{ config.recipient | translate }}</span>
+    <h2 id="letter-title">{{ 'LETTER.TITLE' | translate }}</h2>
+    <p>{{ 'LETTER.INTRO' | translate }}</p>
   </div>
 
   <button
@@ -14,20 +14,24 @@
   >
     <span class="flap"></span>
     <span class="seal">♥</span>
-    <span class="hint">{{ opened() ? 'Carta abierta' : 'Toca para abrir' }}</span>
+    <span class="hint">
+      {{ (opened() ? 'LETTER.OPENED' : 'LETTER.TAP_TO_OPEN') | translate }}
+    </span>
   </button>
 
   @if (opened()) {
     <article id="letter-paper" class="paper">
-      <p class="salute">Mi persona favorita:</p>
+      <p class="salute">{{ 'LETTER.GREETING' | translate }}</p>
       @for (paragraph of config.letter; track paragraph) {
-        <p>{{ paragraph }}</p>
+        <p>{{ paragraph | translate }}</p>
       }
       <footer>
-        {{ config.signature }}
-        <strong>{{ config.sender }}</strong>
+        {{ config.signature | translate }}
+        <strong>{{ config.sender | translate }}</strong>
       </footer>
     </article>
-    <button class="continue" (click)="continued.emit()">Seguir leyendo nuestra historia ↓</button>
+    <button class="continue" (click)="continued.emit()">
+      {{ 'LETTER.CONTINUE' | translate }} ↓
+    </button>
   }
 </section>

@@ -1,16 +1,16 @@
 <section class="section timeline-section" id="historia">
   <header>
-    <span>Érase una vez…</span>
-    <h2>Nuestra historia</h2>
+    <span>{{ 'TIMELINE.EYEBROW' | translate }}</span>
+    <h2>{{ 'TIMELINE.TITLE' | translate }}</h2>
   </header>
   <div class="timeline">
     @for (event of config.timeline; track event.title; let index = $index) {
       <article>
         <div class="dot">{{ index + 1 }}</div>
         <div>
-          <small>{{ event.date }}</small>
-          <h3>{{ event.title }}</h3>
-          <p>{{ event.description }}</p>
+          <small>{{ event.date | translate }}</small>
+          <h3>{{ event.title | translate }}</h3>
+          <p>{{ event.description | translate }}</p>
         </div>
       </article>
     }

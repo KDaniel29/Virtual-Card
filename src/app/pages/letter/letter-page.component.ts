@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { FinalMessageComponent } from '../../components/final-message/final-message.component';
 import { LoveLetterComponent } from '../../components/love-letter/love-letter.component';
 import { MemoryGalleryComponent } from '../../components/memory-gallery/memory-gallery.component';
@@ -14,6 +15,7 @@ import { RelationshipTimelineComponent } from '../../components/relationship-tim
     ReasonsILoveYouComponent,
     RelationshipTimelineComponent,
     FinalMessageComponent,
+    TranslatePipe,
   ],
   templateUrl: './letter-page.component.html',
   styleUrl: './letter-page.component.scss',
