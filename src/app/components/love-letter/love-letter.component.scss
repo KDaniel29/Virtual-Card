@@ -125,6 +125,14 @@
   box-shadow: 0 25px 70px #6f33401c;
   animation: paper 1.15s 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 
+  &.page-next {
+    animation: page-next 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  &.page-previous {
+    animation: page-previous 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
   p {
     margin: 0 0 1.35rem;
     color: #5e4342;
@@ -136,6 +144,57 @@
     color: var(--wine);
     font: 700 2rem var(--script);
   }
+}
+
+.page-navigation {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #e2bfba;
+}
+
+.page-button {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  width: fit-content;
+  padding: 0.9rem 1.35rem;
+  color: var(--wine);
+  font-weight: 800;
+  cursor: pointer;
+  background: #fff9f5;
+  border: 1px solid #e2bfba;
+  border-radius: 999px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.38;
+  }
+
+  &.next {
+    justify-self: end;
+    color: #fff;
+    background: var(--wine);
+    border-color: var(--wine);
+    box-shadow: 0 10px 24px #74344135;
+  }
+}
+
+.page-counter {
+  color: #a77875;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 footer {
@@ -172,6 +231,31 @@ footer {
   }
 }
 
+@keyframes page-next {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+}
+
+@keyframes page-previous {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+}
+
+@media (max-width: 520px) {
+  .page-navigation {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-counter {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .flap,
   .envelope {
@@ -179,7 +263,9 @@ footer {
   }
 
   .paper,
-  .paper p {
+  .paper p,
+  .paper.page-next,
+  .paper.page-previous {
     animation: none;
   }
 }

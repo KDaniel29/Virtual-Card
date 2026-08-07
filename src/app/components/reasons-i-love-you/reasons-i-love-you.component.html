@@ -4,13 +4,28 @@
     <h2>{{ 'REASONS.TITLE' | translate }}</h2>
     <p>{{ 'REASONS.INTRO' | translate }}</p>
   </header>
-  <div class="reasons">
-    @for (reason of config.reasons; track reason; let index = $index) {
-      <article>
-        <b>0{{ index + 1 }}</b>
-        <span>♥</span>
-        <p>{{ reason | translate }}</p>
-      </article>
-    }
+
+  <div class="carousel" aria-roledescription="carousel" [attr.aria-label]="'REASONS.CAROUSEL_ARIA' | translate">
+    <div class="reasons" aria-live="polite">
+      @for (reason of config.reasons; track reason; let index = $index) {
+        <article
+          [class.active]="index === currentIndex()"
+          [class.previous-card]="cardOffset(index) === -1"
+          [class.next-card]="cardOffset(index) === 1"
+          [class.previous-far-card]="cardOffset(index) === -2"
+          [class.next-far-card]="cardOffset(index) === 2"
+          [attr.aria-hidden]="index !== currentIndex()"
+        >
+          <b>{{ (index + 1).toString().padStart(2, '0') }}</b>
+          <span>♥</span>
+          <p>{{ reason | translate }}</p>
+        </article>
+      }
+    </div>
+
+    <nav class="carousel-controls" [attr.aria-label]="'REASONS.NAV_ARIA' | translate">
+      <button type="button" (click)="previous()" [attr.aria-label]="'REASONS.PREVIOUS' | translate">&lt;</button>
+      <button type="button" (click)="next()" [attr.aria-label]="'REASONS.NEXT' | translate">&gt;</button>
+    </nav>
   </div>
 </section>

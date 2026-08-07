@@ -20,16 +20,44 @@
   </button>
 
   @if (opened()) {
-    <article id="letter-paper" class="paper">
-      <p class="salute">{{ 'LETTER.GREETING' | translate }}</p>
-      @for (paragraph of config.letter; track paragraph) {
-        <p>{{ paragraph | translate }}</p>
-      }
-      <footer>
-        {{ config.signature | translate }}
-        <strong>{{ config.sender | translate }}</strong>
-      </footer>
-    </article>
+    @for (page of visiblePage(); track currentPageIndex()) {
+      <article
+        id="letter-paper"
+        class="paper"
+        [class.page-next]="pageDirection() === 'next'"
+        [class.page-previous]="pageDirection() === 'previous'"
+        aria-live="polite"
+      >
+        @if (currentPageIndex() === 0) {
+          <p class="salute">{{ 'LETTER.GREETING' | translate }}</p>
+        }
+        @for (paragraph of page; track $index) {
+          <p>{{ paragraph }}</p>
+        }
+        @if (currentPageIndex() === pages().length - 1) {
+          <footer>
+            {{ config.signature | translate }}
+            <strong>{{ config.sender | translate }}</strong>
+          </footer>
+        }
+
+        @if (pages().length > 1) {
+          <nav class="page-navigation" [attr.aria-label]="'LETTER.PAGE_NAV_ARIA' | translate">
+            <button class="page-button previous" [disabled]="currentPageIndex() === 0" (click)="previousPage()">
+              <span aria-hidden="true">←</span>
+              {{ 'LETTER.PREVIOUS_PAGE' | translate }}
+            </button>
+            <span class="page-counter">
+              {{ 'LETTER.PAGE_COUNTER' | translate: { current: currentPageIndex() + 1, total: pages().length } }}
+            </span>
+            <button class="page-button next" [disabled]="currentPageIndex() === pages().length - 1" (click)="nextPage()">
+              {{ 'LETTER.NEXT_PAGE' | translate }}
+              <span aria-hidden="true">→</span>
+            </button>
+          </nav>
+        }
+      </article>
+    }
     <button class="continue" (click)="continued.emit()">
       {{ 'LETTER.CONTINUE' | translate }} ↓
     </button>

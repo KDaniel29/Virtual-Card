@@ -1,60 +1,93 @@
+.carousel { width: 100%; overflow: hidden; }
+
 .reasons {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+  position: relative;
+  width: min(1100px, 100%);
+  height: 250px;
+  margin: 0 auto;
 
   article {
+    position: absolute;
+    top: 0;
+    left: 50%;
     display: flex;
     flex-direction: column;
-    min-height: 190px;
-    padding: 1.2rem;
+    align-items: center;
+    width: min(260px, 62vw);
+    min-height: 215px;
+    padding: 1.35rem;
     background: rgba(255, 255, 255, 0.55);
     border: 1px solid #efd8d1;
     border-radius: 1.4rem;
-    transition:
-      0.3s transform,
-      0.3s background;
+    opacity: 0;
+    filter: blur(5px);
+    pointer-events: none;
+    transform: translateX(-50%) scale(0.75);
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.55s ease, filter 0.55s ease, background 0.3s ease;
+    will-change: transform, opacity, filter;
 
-    &:hover {
-      background: #fff;
-      transform: translateY(-6px);
+    &.active { z-index: 3; opacity: 1; filter: none; pointer-events: auto; transform: translateX(-50%) scale(1); }
+    &.previous-card, &.next-card { z-index: 2; opacity: 1; filter: none; pointer-events: auto; }
+    &.previous-card { transform: translateX(calc(-50% - min(275px, 27vw))) scale(0.94); }
+    &.next-card { transform: translateX(calc(-50% + min(275px, 27vw))) scale(0.94); }
+    &.previous-far-card, &.next-far-card { z-index: 1; opacity: 0.38; }
+    &.previous-far-card { transform: translateX(calc(-50% - min(520px, 49vw))) scale(0.8); }
+    &.next-far-card { transform: translateX(calc(-50% + min(520px, 49vw))) scale(0.8); }
+    &.active:hover { background: #fff; transform: translateX(-50%) translateY(-6px) scale(1); }
+  }
+
+  b { color: #b98680; font-size: 0.72rem; letter-spacing: 0.12em; }
+  article > span { margin: auto 0; color: var(--rose); font-size: 1.5rem; }
+  p { width: 100%; color: var(--wine); font: 700 1.55rem / 1.2 var(--script); text-align: center; }
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+
+  button {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    color: #fff;
+    font: 800 1.4rem var(--sans);
+    cursor: pointer;
+    background: var(--wine);
+    border: 1px solid var(--wine);
+    border-radius: 50%;
+    box-shadow: 0 10px 24px #74344135;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    place-items: center;
+
+    &:hover:not(:disabled) { transform: translateY(-2px) scale(1.04); }
+    &:disabled { cursor: not-allowed; opacity: 0.3; }
+  }
+
+}
+
+@media (max-width: 600px) {
+  .reasons {
+    height: 235px;
+    article { width: min(250px, 64vw); min-height: 205px; }
+    article.previous-card,
+    article.next-card {
+      opacity: 0.34;
+      filter: blur(5px);
+      pointer-events: none;
     }
-  }
-
-  b {
-    color: #b98680;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-  }
-
-  span {
-    margin: auto 0;
-    color: var(--rose);
-    font-size: 1.5rem;
-  }
-
-  p {
-    color: var(--wine);
-    font: 700 1.55rem / 1.2 var(--script);
+    article.previous-card { transform: translateX(calc(-50% - 57vw)) scale(0.88); }
+    article.next-card { transform: translateX(calc(-50% + 57vw)) scale(0.88); }
+    article.previous-far-card,
+    article.next-far-card {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 }
 
-@media (max-width: 850px) {
-  .reasons {
-    grid-template-columns: repeat(2, 1fr);
-
-    article:last-child {
-      grid-column: 1/-1;
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .reasons {
-    grid-template-columns: 1fr;
-
-    article:last-child {
-      grid-column: auto;
-    }
-  }
+@media (prefers-reduced-motion: reduce) {
+  .reasons article, .carousel-controls button { transition: none; }
 }

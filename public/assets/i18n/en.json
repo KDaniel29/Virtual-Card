@@ -79,6 +79,10 @@
     "GREETING": "My favorite person:",
     "SIGNATURE": "With all my love,",
     "CONTINUE": "Keep reading our story",
+    "PAGE_NAV_ARIA": "Navigate between letter pages",
+    "PREVIOUS_PAGE": "Previous",
+    "NEXT_PAGE": "Next",
+    "PAGE_COUNTER": "Page {{current}} of {{total}}",
     "PARAGRAPHS": {
       "FIRST": "Since you came into my life, every moment has taken on a different meaning. I love sharing my days, thoughts, laughter, and all those little things that make being by your side so special.",
       "SECOND": "I want to keep making memories with you, be there on the good days, and stay close when things get difficult.",
@@ -114,6 +118,10 @@
     "EYEBROW": "What makes you special",
     "TITLE": "What I love about you",
     "INTRO": "I could keep filling cards and never finish.",
+    "CAROUSEL_ARIA": "Carousel of reasons why I love you",
+    "NAV_ARIA": "Carousel controls",
+    "PREVIOUS": "View the previous reason",
+    "NEXT": "View the next reason",
     "ITEMS": {
       "SMILE": "Your smile.",
       "FEELING": "The way you make me feel.",

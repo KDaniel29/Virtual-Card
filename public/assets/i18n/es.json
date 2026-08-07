@@ -10,7 +10,7 @@
   "INTRO": {
     "EYEBROW": "Antes de hacerte una pregunta",
     "TITLE": "Hola, señorita Julied.",
-    "SUBTITLE": "Preparé unas palabras para usted. Tome tu tiempo para leerlas. ♥️",
+    "SUBTITLE": "Preparé unas palabras para usted. Tome su tiempo para leerlas. ♥️",
     "IMAGE_PLACEHOLDER": "Espacio para tu imagen",
     "NAV_ARIA": "Navegación entre mensajes",
     "PREVIOUS": "Anterior",
@@ -19,19 +19,19 @@
     "COUNTER": "Mensaje {{current}} de {{total}}",
     "CARDS": {
       "WELCOME": {
-        "EYEBROW": "Gracias por invitarme",
+        "EYEBROW": "Gracias por invitarme a este viaje ✨",
         "TITLE": "Qué bonito estar aquí juntos",
         "MESSAGE": "Le preparé este proyecto pequeñito pero muy especial para que pueda volver a verlo cada que tenga ganas de recordar el gran cariño, amor y aprecio que tengo por usted."
       },
       "DETAILS": {
-        "EYEBROW": "Esas pequeñas cosas tuyas",
-        "TITLE": "Me haces sonreír con solo escucharte",
-        "MESSAGE": "El solo escuchar tu voz llena de emoción cada que me explicas algo que te apasiona es maravilloso para mí y agradezco todo lo que ha compartido conmigo. Gracias por mostrarme cosas de mí a las que nunca les había puesto atención y darme esa consciencia acerca de todos los temas sociales que nos rodean."
+        "EYEBROW": "Tu pasión y amor por lo que defiendes, me encanta. 💖",
+        "TITLE": "Me haces feliz con solo escucharte",
+        "MESSAGE": "El solo escuchar tu voz me llena de emoción, cada que me explicas algo que te apasiona es maravilloso para mí y agradezco todo lo que ha compartido conmigo. Gracias por mostrarme cosas de mí a las que nunca les había puesto atención y darme esa consciencia acerca de todos los temas sociales que nos rodean. ¡¡¡ESTOY SEGURO QUE SERÁ UNA GRAN ACTIVISTA SOCIAL EN EL FUTURO Y ME ENCANTARÍA VER LO QUE SE CONVERTIRÁ!!! 🥰"
       },
       "SOMETHING_SPECIAL": {
-        "EYEBROW": "Una última cosa",
+        "EYEBROW": "Una cosita más... ✨",
         "TITLE": "Esto viene del fondo de mi corazón",
-        "MESSAGE": "No quería que la siguiente pregunta fuera solamente una frase cliché. Quería que supieras que detrás de ella hay ilusión, respeto y muchas ganas de seguir creciendo y aprendiendo acerca de la vida, junto a ti. 💖"
+        "MESSAGE": "No quería que la siguiente pregunta fuera solamente una pregunta cliché o algo por el estilo. Quería que supieras que detrás de ella hay ilusión, respeto y muchas ganas de seguir creciendo y aprendiendo acerca de la vida, pero esta vez junto a ti. 💖"
       }
     }
   },
@@ -79,22 +79,28 @@
     "GREETING": "Para Mi brujita 💖:",
     "SIGNATURE": "Con mucho amor,",
     "CONTINUE": "Seguir leyendo nuestra historia",
+    "PAGE_NAV_ARIA": "Navegación entre hojas de la carta",
+    "PREVIOUS_PAGE": "Anterior",
+    "NEXT_PAGE": "Siguiente",
+    "PAGE_COUNTER": "Hoja {{current}} de {{total}}",
     "PARAGRAPHS": {
       "FIRST": "Espero que estés muy muy bien y que la estés pasando de maravilla. Agradezco mucho que me invvitaras a un momento tan especial para ti como lo es ver a Paty quién ha sido tu artista favorita desde niña en vivo por primera vez. 🥰",
       "SECOND": "No puedo creer lo increíble que está siendo todo esto señorita.🥰 Sinceramente, si al niño de 10 años que le encantaba mirarte y que le gustaste muchísimo con tan solo verte, le dijeran que pasaría todo un fin de semana completo con su crush visitando museos, creando recuerdos, divirtiéndose todo el fin de semana juntos, nunca se lo creería. 🤭",
       "THIRD": "De hecho, tampoco se creería que también le gustas, para mí eso siempre fue un sueño y hoy usted me lo está haciendo realidad. ✨ Siéndote sincero, yo te creía inalcanzable para mí y no tanto porque tuviera una baja autoestima o algo así, sino porque eres tan hermosa que penseé que no tendría oportunidad entre tantos hombres.",
-      "FOURTH": "¿Quieres comenzar esta nueva historia conmigo? 💖"
+      "FOURTH": "Pase lo que pase en este viaje, quiero agradecerte por todo lo que me has enseñado, por todo aquello que quizás yo sabía que estaba ahí pero simplemente lo ignoraba y cuando llegaste a mi vida me dí cuenta que todo eso es más importante de lo que pensaba. ♥️",
+      "FIFTH": "Amo todas tus pláticas tan interesantes, amo tu pasión por ayudar a los demás, por ser parte de todas esas mujeres que no se quedan calladas y que defienden con orgullo todo eso que tanto les costó conseguir. Admiro toda tu entrega y sueños de tener tu propia fundación que estoy seguro que lo lograrás y podrás ayudar a muchísimos niños y mujeres, y me encantaría estar presente el día que cumplas tus sueños. 🫶✨",
+      "SIXTH": "¿Quieres comenzar esta nueva historia conmigo? 💖"
     }
   },
   "MEMORIES": {
     "EYEBROW": "Álbum de los dos",
     "TITLE": "Nuestros momentos",
-    "INTRO": "Pequeños espacios esperando nuestras fotos favoritas.",
+    "INTRO": "Aquí podremos armar nuestro mini álbum de fotos juntos y de nuestro viaje. 🤭",
     "PLACEHOLDER": "Aquí va nuestra foto",
     "ITEMS": {
       "FIRST": {
         "TITLE": "Nuestra primera foto",
-        "CAPTION": "Ese instante donde todo comenzó."
+        "CAPTION": "Nuestra primer foto... que emoción!!! 🥰"
       },
       "SPECIAL": {
         "TITLE": "Un día especial",
@@ -111,15 +117,26 @@
     }
   },
   "REASONS": {
-    "EYEBROW": "Lo que haces especial",
-    "TITLE": "Lo que amo de ti",
-    "INTRO": "Podría seguir llenando tarjetas y nunca terminar.",
+    "EYEBROW": "✨ Razones por las cuáles me gustas ✨",
+    "TITLE": "Lo que me encanta de ti",
+    "INTRO": "Podría seguir llenando tarjetas y nunca terminar jeje 👀",
+    "CAROUSEL_ARIA": "Carrusel de razones por las que me gustas",
+    "NAV_ARIA": "Controles del carrusel",
+    "PREVIOUS": "Ver la razón anterior",
+    "NEXT": "Ver la siguiente razón",
     "ITEMS": {
-      "SMILE": "Tu sonrisa.",
-      "FEELING": "La forma en que me haces sentir.",
-      "PERSONALITY": "Tus ocurrencias.",
-      "LISTENING": "Tu manera de escucharme.",
-      "MOMENTS": "Todos los momentos que compartimos."
+      "1": "Tu sonrisa.",
+      "2": "La forma en que me haces sentir.",
+      "3": "Tus ocurrencias.",
+      "4": "Tu manera de escucharme.",
+      "5": "Todos los momentos que compartimos.",
+      "6": "Tu mirada",
+      "7": "Tu risa",
+      "8": "Tu valentía",
+      "9": "Lo inteligente que eres",
+      "10": "Tu voz",
+      "11": "Tu madurez emocional",
+      "12": "Tu sinceridad"
     }
   },
   "TIMELINE": {

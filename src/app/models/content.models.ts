@@ -7,7 +7,7 @@ export interface Memory {
 
 /** Tarjeta del recorrido introductorio; `image` puede agregarse posteriormente. */
 export interface IntroCard {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   message: string;
   image?: string;
