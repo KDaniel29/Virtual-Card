@@ -68,7 +68,14 @@
     "LETTER": "Letter",
     "MEMORIES": "Memories",
     "REASONS": "Reasons",
-    "STORY": "Story"
+    "STORY": "Story",
+    "SPECIAL_QUESTION": "Special question"
+  },
+  "SPECIAL_QUESTION": {
+    "EYEBROW": "An important moment",
+    "TITLE": "Special question",
+    "INTRO": "There is something very important I want to ask you.",
+    "OPEN": "Go to the question"
   },
   "LETTER": {
     "FOR": "For",

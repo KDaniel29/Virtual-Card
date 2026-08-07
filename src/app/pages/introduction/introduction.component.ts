@@ -25,7 +25,7 @@ export class IntroductionComponent {
 
   next(): void {
     if (this.isLast()) {
-      void this.router.navigate(['/pregunta']);
+      void this.router.navigate(['/carta']);
       return;
     }
     this.currentIndex.update((index) => index + 1);

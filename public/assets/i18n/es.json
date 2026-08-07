@@ -45,7 +45,7 @@
   "HOME": {
     "EYEBROW": "Tengo una pregunta muy importante para ti…",
     "QUESTION": "¿Me daría el honor de ser su novio?",
-    "NOTE": "Una pregunta pequeñita, pero en la que estoy dispuesto a entregarle mi corazón, si lo acepta...",
+    "NOTE": "Una pregunta pequeñita, pero en la que estoy dispuesto a entregarle todo de mí, si lo acepta...",
     "YES": "Sí",
     "NO_OPTIONS": {
       "INITIAL": "No 🙈",
@@ -68,7 +68,14 @@
     "LETTER": "Carta",
     "MEMORIES": "Momentos",
     "REASONS": "Razones",
-    "STORY": "Historia"
+    "STORY": "Historia",
+    "SPECIAL_QUESTION": "Pregunta especial"
+  },
+  "SPECIAL_QUESTION": {
+    "EYEBROW": "Un momento importante",
+    "TITLE": "Pregunta especial",
+    "INTRO": "Hay algo muy importante que quiero preguntarte.",
+    "OPEN": "Ir a la pregunta"
   },
   "LETTER": {
     "FOR": "Para",
