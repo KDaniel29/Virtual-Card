@@ -11,6 +11,23 @@
           <small>{{ event.date | translate }}</small>
           <h3>{{ event.title | translate }}</h3>
           <p>{{ event.description | translate }}</p>
+
+          @if (event.description2) {
+            <p>{{ event.description2 | translate }}</p>
+          }
+
+          @if (event.description3) {
+            <p>{{ event.description3 | translate }}</p>
+          }
+
+          @if (event.description4) {
+            <p>{{ event.description4 | translate }}</p>
+          }
+
+          @if (event.description5) {
+            <p>{{ event.description5 | translate }}</p>
+          }
+
         </div>
       </article>
     }

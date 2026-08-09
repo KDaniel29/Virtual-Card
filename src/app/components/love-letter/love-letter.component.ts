@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { LOVE_CONFIG } from '../../config/love.config';
 
-const WORDS_PER_PAGE = 200;
+const WORDS_PER_PAGE = 250;
 
 @Component({
   selector: 'app-love-letter',

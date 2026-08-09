@@ -12,7 +12,7 @@ import { LOVE_CONFIG } from '../../config/love.config';
 /** Renderiza las razones personalizables como tarjetas. */
 export class ReasonsILoveYouComponent {
   readonly config = LOVE_CONFIG;
-  readonly currentIndex = signal(0);
+  readonly currentIndex = signal(1);
 
   previous(): void {
     this.currentIndex.update(

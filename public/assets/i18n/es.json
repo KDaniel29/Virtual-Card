@@ -21,7 +21,7 @@
       "WELCOME": {
         "EYEBROW": "Gracias por invitarme a este viaje ✨",
         "TITLE": "Qué bonito estar aquí juntos",
-        "MESSAGE": "Le preparé este proyecto pequeñito pero muy especial para que pueda volver a verlo cada que tenga ganas de recordar el gran cariño, amor y aprecio que tengo por usted."
+        "MESSAGE": "Le preparé este proyecto pequeñito pero muy especial para que pueda volver a verlo cada que tenga ganas de recordar el gran cariño, amor y aprecio que tengo por usted. 🥰"
       },
       "DETAILS": {
         "EYEBROW": "Tu pasión y amor por lo que defiendes, me encanta. 💖",
@@ -31,7 +31,7 @@
       "SOMETHING_SPECIAL": {
         "EYEBROW": "Una cosita más... ✨",
         "TITLE": "Esto viene del fondo de mi corazón",
-        "MESSAGE": "No quería que la siguiente pregunta fuera solamente una pregunta cliché o algo por el estilo. Quería que supieras que detrás de ella hay ilusión, respeto y muchas ganas de seguir creciendo y aprendiendo acerca de la vida, pero esta vez junto a ti. 💖"
+        "MESSAGE": "Espero que le guste mucho esta pequeña sorpresita, maybe no es mucho pero lo hice única y especialmente para usted con la intención de que se sienta querida, de demostrarte las cosas especiales que alguien puede hace por usted cuando realmente hay interés. 💖"
       }
     }
   },
@@ -96,7 +96,8 @@
       "THIRD": "De hecho, tampoco se creería que también le gustas, para mí eso siempre fue un sueño y hoy usted me lo está haciendo realidad. ✨ Siéndote sincero, yo te creía inalcanzable para mí y no tanto porque tuviera una baja autoestima o algo así, sino porque eres tan hermosa que penseé que no tendría oportunidad entre tantos hombres.",
       "FOURTH": "Pase lo que pase en este viaje, quiero agradecerte por todo lo que me has enseñado, por todo aquello que quizás yo sabía que estaba ahí pero simplemente lo ignoraba y cuando llegaste a mi vida me dí cuenta que todo eso es más importante de lo que pensaba. ♥️",
       "FIFTH": "Amo todas tus pláticas tan interesantes, amo tu pasión por ayudar a los demás, por ser parte de todas esas mujeres que no se quedan calladas y que defienden con orgullo todo eso que tanto les costó conseguir. Admiro toda tu entrega y sueños de tener tu propia fundación que estoy seguro que lo lograrás y podrás ayudar a muchísimos niños y mujeres, y me encantaría estar presente el día que cumplas tus sueños. 🫶✨",
-      "SIXTH": "¿Quieres comenzar esta nueva historia conmigo? 💖"
+      "SIXTH": "Gracias al destino, a Dios o a lo que sea que nos haya permitido conocernos más a fondo ahora, justo cuando cada quién tiene su vida en orden, cuando cada quien puede vivir su vida soltero y que el hecho de querer estar en una relación sea realmente por atracción y mo por sentimiento de soledad. No me deja de retumbar en la mente lo que me respondiste cuando te pregunté que hubiera pasado si nos encontrábamos en otro momento. No sé que vaya a psar a partir de hoy, si me aceptes para formar parte de tu vida de otra manera o simplemente nos quedemos como mejores amigos pero quiero que sepas que he desarrollado un cariño por tí que no sentía en mucho tiempo, sigo pensando como fue posible todo esto, el estar juntos en este viaje, en este momento, en este lugar y poder tener la oportunidad de pasar uno de los momentos más felices de tu vida a tu lado, simplemente gracias por la oportunidad. 💖"
+
     }
   },
   "MEMORIES": {
@@ -110,16 +111,16 @@
         "CAPTION": "Nuestra primer foto... que emoción!!! 🥰"
       },
       "SPECIAL": {
-        "TITLE": "Un día especial",
-        "CAPTION": "Un día que guardo cerquita del corazón."
+        "TITLE": "Nuestra primera cita.",
+        "CAPTION": "La primera vez que la ví toda preciosa para salir conmigo. 🙈"
       },
       "FAVORITE": {
-        "TITLE": "Mi recuerdo favorito",
-        "CAPTION": "Una sonrisa que nunca quiero olvidar."
+        "TITLE": "Foto favorita del concierto 🎤",
+        "CAPTION": "Vimos a Paty Cantú, OMG!!! 🤩"
       },
       "ADVENTURE": {
-        "TITLE": "Una aventura juntos",
-        "CAPTION": "Y todas las que aún nos esperan."
+        "TITLE": "Foto favorita del viaje",
+        "CAPTION": "Espero que sea el primer viaje de muchos a tu lado. ✈️"
       }
     }
   },
@@ -132,7 +133,7 @@
     "PREVIOUS": "Ver la razón anterior",
     "NEXT": "Ver la siguiente razón",
     "ITEMS": {
-      "1": "Tu sonrisa.",
+      "1": "Tu perfecta sonrisa.",
       "2": "La forma en que me haces sentir.",
       "3": "Tus ocurrencias.",
       "4": "Tu manera de escucharme.",
@@ -143,7 +144,36 @@
       "9": "Lo inteligente que eres",
       "10": "Tu voz",
       "11": "Tu madurez emocional",
-      "12": "Tu sinceridad"
+      "12": "Tu sinceridad",
+      "13": "Desvelarme contigo",
+      "14": "Que me hables de tu amor por Aranza",
+      "15": "Tu pasión por ayudar",
+      "16": "Tu signo jaja ♈",
+      "17": "Tu forma extrovertida de ser",
+      "18": "Que cuides mucho de ti",
+      "19": "Que me platiques tu día",
+      "20": "Tus fotos todas preciosas",
+      "21": "Tu individualidad",
+      "22": "Tu amor por tu familia",
+      "23": "Tu carácter (con el que hasta ahorita he podido jaja)",
+      "24": "Tu creatividad",
+      "25": "Tus outfits",
+      "26": "Tu naturalidad",
+      "27": "Tu interés en que esto fluya",
+      "28": "Tus ojitos preciosos",
+      "29": "Tu naríz (aunque usted diga que está chueca jaja)",
+      "30": "Cuando te pones cursi (aunque no le guste a la señorita de corazón frío jaja)",
+      "31": "Escuchar tu voz al despertar",
+      "32": "Que me pongas nervioso",
+      "33": "El miedo que me provocas (Te lo explico si no entiendes a qué me refiero)",
+      "34": "Tu sarcasmo",
+      "35": "Tu coqueteo",
+      "36": "Tu baby talk",
+      "37": "Soñarte ✨",
+      "38": "Hablar contigo en la noche",
+      "39": "Tus temas de conversación",
+      "40": "Tu empatía con los demás",
+      "41": "Ash, niños 🙄"
     }
   },
   "TIMELINE": {
@@ -152,23 +182,33 @@
     "ITEMS": {
       "MEETING": {
         "DATE": "Capítulo 01",
-        "TITLE": "El día que nos conocimos",
-        "DESCRIPTION": "Sin saberlo, comenzaba mi parte favorita de la historia."
+        "TITLE": "El día que nos conocimos y nuestras historias de primaria",
+        "DESCRIPTION": "Era un día más en la primaria para mí, los mismos niños, las mismas clases, todo lo normal que esperarías de otro día más en la escuela. Entonces en un punto de la mañana, apareció una niña muy linda en la puerta del salón acompañada de su mamá y mi primer pensamiento al verla fue 'wow, que niña tan bonitaaaaaa. 😍'",
+        "DESCRIPTION2": "En ese momento no sabía lo que pasaba, lo que experimenté al verte fue increíble, no puedo decir que fue amor a primera vista porque siendo niños ni siquiera sabíamos como se sentía el amor pero realmente me gustaste, tu belleza me atrajo desde el primer día que te conocí (algo increíble que te conocieras en la primaria a pesar de vivir tan cerca uno del otro), fuiste, eres y serás la primer niña que me gustó en toda mi vida. 💖",
+        "DESCRIPTION3": "No recuerdo mucho acerca de nuestra relación como amigos en la primaria, pero lo que sí recuerdo es que todas esas veces que jugábamos juntos a 'policías y ladrones', a la primera que buscaba para atrapar era a ti, siempre procuraba estar cerca de ti ya sea para que me intentaras atrapar o para atraparte, supongo que era mi manera de estar cerca de ti disimulando que me gustabas (y que me gustas todavía). Recuerdo cuánto sufrí por no poder ir a tu casa la vez que pintamos unos guantes jaja o la vez que viniste a mi casa y sonó una canción de tribal y usted estuvo cantando y yo quise seguirle la letra para cantar a dueto pero no me la sabía jaja. También recuerdo mucho una canción que usted me pasó por bluetooth de un cantante llamado Flo Rida, la canción se llama Whistle y recuerdo escucharla a cada rato porque me recordaba mucho a ti 🙈. ",
+        "DESCRIPTION4": "Amé que tuviéramos el mismo celular, nunca imaginé que la razón de tener el mismo era porque yo también te gustaba, maybe para usted era demasiado obvio pero para mí nunca lo fue, para mí solo era como una muy linda coincidencia. Recuerdo el intercambio navideño que te mencioné, yo era inmensamente feliz porque en el interccambio me habías toado tú y recuerdo esmerarme un montón para que todo saliera bien el día del intercambio, estuve buscando muchas cosas de color morado (porque en ese entonces era tu color favorito) y entre todas las cosas que te dí iba tu moñito colorado con el que me hacían burla cada vez que lo traías puesto jaja. ✨",
+        "DESCRIPTION5": "Llegándose el final de nuestra generación en la primaria, me había puesto como propósito decirte lo que sentía antes de terminar el ciclo escolar, no imaginas todo el sentimiento de presión ver el día de la clausura cada vez más cerca y tener este miedo de contarte que me gustaste desde el primer momento que te ví, finalmente después de pensarlo mucho me animé a contarte por medio de un SMS (que todavía se usaban en ese tiempo jaja) y que lo escribí con las manos temblando y sudando de nervios porque maybe ahora no es la gran cosa, pero en ese tiempo era un niño declarándose a la niña que le gusta 🥺. Tuve miedo de tu reacción, tuve miedo al rechazo y por eso al dia siguiente después de ese mensaje te estuve evitando lo más que pudiera porque no sabía cuál sería tu reacción, el miedo me terminó ganando y cuando te acercaste a preguntarme si era verdad lo del mensaje me terminé acobardando, el miedo me ganó y terminé diciéndote que todo había sido una broma, que Iván había escrito ese mensaje para molestarme y solo me fuí corriendo de ahí jaja..."
       },
       "DATE": {
         "DATE": "Capítulo 02",
-        "TITLE": "Nuestra primera salida",
-        "DESCRIPTION": "El tiempo pasó demasiado rápido a tu lado."
+        "TITLE": "Nuestra adolescencia",
+        "DESCRIPTION": "Bueno... que te puedo decir jaja, después de todo lo que pasó en primaria, ambos entramos a la secundaria y aunque iba con la esperanza de estar en el mismo grupo contigo, esta vez no pudo ser, tu quedaste en el A mientras que yo quedé en el B. Recuerdo buscarte con la mirada cada receso simplemente para verte, la atracción por ti aún seguía existiendo pero el arrepentimiento de haberme echado para atrás cuando finalmente te lo conté, también estaba ahí.",
+        "DESCRIPTION2": "No se me olvida el día que estaba caminando alrededor del salón de taqui y en el momento en que levanté la mirada estabas tú ahí, tomada de las manos con un wey mayor que nosotros, en ese momento sentí como se me rompió mi corazoncito y que finalmente alguien me había ganado el tuyo, entendí que me había tardado y que tal vez había sido un errror enorme el echarme para atrás en la primaria (aunque estábamos chiquitos y ni siquiera sabíamos como funcionaba todo esto para mí ya era error fatal echarme para atrás JAJAJA).",
+        "DESCRIPTION3": "Después, simplemente recuerdo que dejé de verte y supe que te habías ido para USA pero nunca te perdí de vista (eso suena un poquito creepy 🥴). Llegué a felicitarte por tu cumpleaños alguna vez y me agradeciste por ello pero no recuerdo si simplemente te dejé de contestar o que fue lo que pasó. 😅",
+        "DESCRIPTION4": "Recuerdo también haberte visto algunas veces en el carnaval o judas, sinceramente no recuerdo cuántas veces fueron pero estoy seguro que fueron varias, pero tu estabas en una relación y yo también así que simplemente pensaba \"Sigue estando igual de linda que siempre\" pero siempre era una muy agradable sopresa volverte a ver en Tarímbaro. 🥰"
       },
       "SPECIAL": {
         "DATE": "Capítulo 03",
-        "TITLE": "Cuando supe que eras especial",
-        "DESCRIPTION": "De pronto, todas las pequeñas cosas tenían tu nombre."
+        "TITLE": "Éstos últimos cinco meses",
+        "DESCRIPTION": "Ahora que hemos comenzado a platicar, señorita. Además de gustarme físicamente puedo decirle que toda su forma de ser, su forma de pensar, tu manera de expresarte  y muchísimas cosas más me encantan de usted. ✨",
+        "DESCRIPTION2": "Estaba muy nervioso de nuevo cuando te mandé mensaje nuevamente, recuerdo que iba en el camión hacia el trabajo y días antes me pareció ver una historia tuya aquí. Entonces ésta vez me llené de valor de nuevo y a pesar del miedo y el nerviosismo te mandé mensaje para invitarte a salir por un café. 🤭",
+        "DESCRIPTION3": "Siéndote sincero no esperaba que respondieras pero lo hiciste (Al principio 🤣), gracias por aclararme tiempo después por qué ni en visto me dejaste JAJAJA, fue algo muy lindo de tu parte darme esa explicación y me ha encantado completamente la inteligencia emocional que me has mostrado a lo largo de estos cinco meses que llevamos hablando, es algo que aprecio muchísimo y además muy difícil de encontrar en una persona a día de hoy. 💖",
+        "DESCRIPTION4": "Amo nuestras pláticas nocturnas, amo que me mandes fotitos tuyas cada que te sientes linda, amo que me cuentes tu día a día y que hables sobre mí con tu entorno así como yo hablo de ti con el mío, haces que me sienta bien y tienes el poder de cambiar completamente mi dia con un mensajito, de verdad ME GUSTAS MUCHÍSIMO Y JAMÁS ME CANSARÉ DE REPETIRLO!!!✨" 
       },
       "TODAY": {
-        "DATE": "Hoy",
-        "TITLE": "El comienzo de una nueva historia",
-        "DESCRIPTION": "Una página en blanco para escribirla juntos."
+        "DATE": "A partir de hoy...",
+        "TITLE": "Un nuevo capítulo para nosotros",
+        "DESCRIPTION": "No sé que pasará después de mostrarte esto, no sé que pasará el resto del viaje ni que tanto cambiará en nostros todo este fin de semana pero una cosa es segura, dsifrutaré cada minuto que pueda pasar a tu lado durante estos días, espero hacer que este viaje sea muy especial para ti y lo recuerdes cada que necesites un pensamiento lindo, muchas gracias por invitarme y por pemitirme el privilegio (porque para mí realmente es un privilegio estar a tu lado...) de compartir esta experiencia y formar estos recuerdos juntos. 💖"
       }
     }
   },

@@ -2,6 +2,10 @@
   background: linear-gradient(180deg, #fff9f5, #fbe9e8);
 }
 
+article p + p {
+  margin-top: 1rem;
+}
+
 .timeline {
   position: relative;
   width: min(700px, 100%);
