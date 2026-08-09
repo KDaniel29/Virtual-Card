@@ -1,290 +1,280 @@
 # Carta Virtual 💌
 
-Aplicación romántica e interactiva hecha con Angular. Presenta una pregunta inicial,
-una celebración, un sobre animado, una carta, recuerdos, razones, una línea del tiempo y
-música opcional. El diseño se adapta a teléfonos, tabletas y computadoras.
+Experiencia romántica e interactiva desarrollada con Angular 20. Incluye una bienvenida animada, mensajes introductorios, una carta paginada, recuerdos, razones, una línea del tiempo, una pregunta especial y una celebración final reutilizable. El diseño es responsive y mantiene una estética tierna, chibi y elegante.
 
 ## Inicio rápido
 
 ### Requisitos
 
-- Node.js 22.12 o posterior (Node 24 recomendado para coincidir con GitHub Actions).
+- Node.js 22.12 o posterior.
 - npm 10 o posterior.
-- Git, solamente si se publicará en GitHub.
 
-### Instalar y ejecutar
-
-Abre una terminal en la carpeta del proyecto y ejecuta:
+### Instalación y desarrollo
 
 ```bash
 npm install
 npm start
 ```
 
-Visita `http://localhost:4200`. El servidor actualiza la página cuando guardas cambios.
+Abre `http://localhost:4200`. No abras `src/index.html` directamente: Angular debe compilar la aplicación.
 
-> No abras `src/index.html` directamente en el navegador. Angular necesita compilar el
-> proyecto mediante `npm start`.
+## Flujo de la experiencia
 
-## Dónde se encuentra cada cosa
+```text
+Bienvenida
+  → tarjetas introductorias
+  → carta y secciones románticas
+  → pregunta especial
+  → celebración
+  → regreso al inicio de la carta, ya abierta
+```
 
-| Necesito cambiar…                          | Archivo                                                  |
-| ------------------------------------------ | -------------------------------------------------------- |
-| Nombre, carta, razones, recuerdos y fechas | `src/app/config/love.config.ts`                          |
-| Tarjetas e imágenes de introducción        | `src/app/config/love.config.ts`                          |
-| Pregunta y comportamiento del botón “No”   | `src/app/pages/home-question/home-question.component.ts` |
-| Archivo, volumen y reproducción de música  | `src/app/services/music.service.ts`                      |
-| Ilustración principal                      | `public/assets/images/chibi-bears.png`                   |
-| Fotos personales                           | `public/assets/images/`                                  |
-| Colores y tipografías globales             | `src/styles.scss`                                        |
-| Rutas de navegación                        | `src/app/app.routes.ts`                                  |
-| Orden de las secciones                     | `src/app/pages/letter/letter-page.component.html`        |
-| Traducciones al español                    | `public/assets/i18n/es.json`                             |
-| Traducciones al inglés                     | `public/assets/i18n/en.json`                             |
-| Despliegue automático                      | `.github/workflows/deploy.yml`                           |
+### 1. Bienvenida
 
-La aplicación usa componentes independientes (_standalone_). `src/index.html` solo crea
-`<app-root>`; `AppComponent` mantiene los elementos globales y `<router-outlet>` muestra
-la página asociada a la ruta activa.
+La ruta `/` muestra primero `WelcomeScreenComponent`:
 
-Consulta [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) para entender el flujo interno.
+- Reutiliza una ilustración de `public/assets/images`.
+- Presenta imagen, eyebrow, título, mensaje y botón con entrada escalonada.
+- Incluye flotación, destellos, corazones y una salida suave de 700 ms.
+- Al pulsar **Comenzar ♡**, emite `start` y revela la introducción sin recargar ni cambiar de ruta.
+- Respeta `prefers-reduced-motion`.
 
-## Traducciones español–inglés
+### 2. Introducción
 
-Todos los textos visibles se almacenan como claves equivalentes en:
+`IntroductionComponent` presenta las tarjetas configuradas en `LOVE_CONFIG.introCards`.
+
+- **Siguiente** y **Anterior** usan una transición en dos fases: salida de la tarjeta actual y entrada direccional de la nueva.
+- Los botones se bloquean brevemente durante la transición para evitar saltos por pulsaciones repetidas.
+- En móvil se reserva espacio inferior para que la navegación no se superponga con los controles fijos de idioma y música.
+
+### 3. Carta y contenido principal
+
+La ruta `/carta` contiene:
+
+- Sobre animado y carta.
+- Paginación automática por cantidad de palabras.
+- Desplazamiento suave al inicio de cada hoja al pulsar **Siguiente**.
+- Galería de recuerdos.
+- Carrusel de razones.
+- Línea del tiempo con varios párrafos opcionales por capítulo.
+- Acceso a la pregunta especial.
+- Mensaje final y opción para volver a leer.
+
+`LoveLetterComponent` acepta el input `openInitially`. La URL `/carta?open=true` muestra el sobre abierto y la primera hoja desde el inicio; `/carta` conserva el comportamiento normal con el sobre cerrado.
+
+### 4. Pregunta y celebración
+
+La pregunta especial se encuentra en `/pregunta`. Una respuesta afirmativa lleva a `/celebracion`.
+
+La celebración final:
+
+- Mantiene el título, imagen, mensaje y diseño original.
+- El primer botón ejecuta `triggerCelebration()` sin navegar.
+- La primera celebración genera más partículas que las siguientes.
+- Combina una explosión local desde la posición real del botón con una capa ambiental de corazones, destellos, pétalos y sobres.
+- Las partículas varían en tamaño, profundidad, opacidad, desenfoque, rotación, trayectoria y duración.
+- El título, el corazón, la imagen y el botón reaccionan brevemente.
+- Después de celebrar aparece **Volver al inicio de la carta 💌**.
+- Ese segundo botón navega a `/carta?open=true`.
+- Cada lote de partículas se elimina automáticamente después de 4.2 segundos.
+- Los temporizadores se cancelan si el componente se destruye.
+
+En `prefers-reduced-motion` se crean menos partículas y se sustituyen los recorridos largos por transiciones discretas de opacidad.
+
+## Rutas
+
+| Ruta           | Componente              | Función                                 |
+| -------------- | ----------------------- | --------------------------------------- |
+| `/`            | `IntroductionComponent` | Bienvenida y tarjetas introductorias.   |
+| `/carta`       | `LetterPageComponent`   | Carta y recorrido romántico principal.  |
+| `/pregunta`    | `HomeQuestionComponent` | Pregunta especial.                      |
+| `/celebracion` | `CelebrationComponent`  | Celebración final y regreso a la carta. |
+| Cualquier otra | Redirección             | Regresa a `/`.                          |
+
+## Dónde cambiar cada elemento
+
+| Necesito cambiar…                                    | Archivo                                           |
+| ---------------------------------------------------- | ------------------------------------------------- |
+| Nombre, firma, carta, razones, recuerdos y capítulos | `src/app/config/love.config.ts`                   |
+| Bienvenida                                           | `src/app/components/welcome-screen/`              |
+| Tarjetas introductorias                              | `src/app/pages/introduction/`                     |
+| Carta, paginación y apertura automática              | `src/app/components/love-letter/`                 |
+| Orden de las secciones                               | `src/app/pages/letter/letter-page.component.html` |
+| Pregunta y comportamiento de respuestas              | `src/app/pages/home-question/`                    |
+| Partículas y botones de celebración                  | `src/app/pages/celebration/`                      |
+| Reproductor de música                                | `src/app/services/music.service.ts`               |
+| Colores y tipografías                                | `src/styles.scss`                                 |
+| Rutas                                                | `src/app/app.routes.ts`                           |
+| Español                                              | `public/assets/i18n/es.json`                      |
+| Inglés                                               | `public/assets/i18n/en.json`                      |
+
+## Internacionalización
+
+La aplicación utiliza `ngx-translate`. Todos los textos visibles deben existir con la misma clave en:
 
 ```text
 public/assets/i18n/es.json
 public/assets/i18n/en.json
 ```
 
-Las plantillas resuelven esas claves mediante `TranslatePipe`:
+Uso desde una plantilla:
 
 ```html
-<h1>{{ 'HOME.QUESTION' | translate }}</h1>
+<h1>{{ 'INTRO.WELCOME.TITLE' | translate }}</h1>
 ```
 
-Para modificar un texto, conserva la misma clave en ambos JSON y cambia únicamente su
-valor. Si agregas una frase nueva:
-
-1. Crea la clave en `es.json`.
-2. Crea exactamente la misma clave en `en.json`.
-3. Úsala en la plantilla con `| translate`.
-4. Si la clave se encuentra en un arreglo de `LOVE_CONFIG`, guarda la clave —no el texto
-   final— y aplica el pipe al mostrarla.
-
-El selector detecta inicialmente el idioma del navegador y guarda la preferencia en
-`localStorage`. El español se utiliza como respaldo. Para agregar otro idioma, crea su
-JSON, amplía `SupportedLanguage` y añade otro botón al selector.
-
-## Personalizar la carta
-
-### Textos y firma
-
-Edita `src/app/config/love.config.ts`. Este archivo exporta `LOVE_CONFIG`, el objeto que
-usan todas las secciones. Los campos principales son:
-
-- `recipient`: nombre o apodo de la persona.
-- `sender`: firma que aparece al final.
-- `eyebrow` y `question`: textos de la primera pantalla.
-- `letter`: párrafos de la carta; cada elemento del arreglo es un párrafo.
-- `reasons`: tarjetas de “Lo que amo de ti”.
-- `memories`: tarjetas de la galería.
-- `timeline`: eventos de la historia.
-- `finalMessage`: mensaje de cierre.
-
-No elimines comas, comillas ni corchetes. Después de editar, ejecuta `npm run build` para
-detectar errores de sintaxis.
-
-### Fotografías
-
-1. Copia una imagen a `public/assets/images`, por ejemplo `primera-foto.jpg`.
-2. Agrega la propiedad `image` al recuerdo correspondiente:
+Uso desde `LOVE_CONFIG`:
 
 ```typescript
 {
-  title: 'Nuestra primera foto',
-  caption: 'Ese instante donde todo comenzó.',
+  title: 'TIMELINE.ITEMS.MEETING.TITLE',
+  description: 'TIMELINE.ITEMS.MEETING.DESCRIPTION',
+}
+```
+
+El catálogo en inglés incluye los seis párrafos de la carta, las 41 razones y todos los párrafos secundarios de la línea del tiempo. Ambos diccionarios mantienen actualmente la misma estructura de claves.
+
+Para agregar contenido:
+
+1. Añade la clave en `es.json`.
+2. Añade la misma clave en `en.json`.
+3. Guarda la clave, no el texto final, dentro de `LOVE_CONFIG`.
+4. Resuélvela con `TranslatePipe` en la plantilla.
+5. Ejecuta `npm run build`.
+
+El idioma inicial se obtiene del navegador, la preferencia se guarda en `localStorage` y español funciona como respaldo.
+
+## Personalización
+
+### Imágenes y GIF
+
+Coloca los recursos en:
+
+```text
+public/assets/images/
+```
+
+Y úsalos sin incluir `public` en la URL:
+
+```html
+<img src="assets/images/ositos.gif" alt="Ilustración romántica" />
+```
+
+Un GIF solo se repite indefinidamente si fue exportado con la opción `Loop: Forever`.
+
+Las imágenes configurables pueden declararse así:
+
+```typescript
+{
+  title: 'MEMORIES.ITEMS.FIRST.TITLE',
+  caption: 'MEMORIES.ITEMS.FIRST.CAPTION',
   image: 'assets/images/primera-foto.jpg',
 }
 ```
 
-La ruta comienza con `assets/`, no con `public/`. Angular copia el contenido de `public`
-a la raíz del sitio durante el build.
+### Párrafos adicionales de la línea del tiempo
 
-Las tarjetas introductorias funcionan igual. Copia la imagen a `public/assets/images` y
-descomenta o agrega `image` dentro de `introCards`:
-
-```typescript
-{
-  eyebrow: 'INTRO.CARDS.WELCOME.EYEBROW',
-  title: 'INTRO.CARDS.WELCOME.TITLE',
-  message: 'INTRO.CARDS.WELCOME.MESSAGE',
-  image: 'assets/images/bienvenida.jpg',
-}
-```
-
-Si `image` no está presente, la tarjeta muestra un marcador de posición. Las frases se
-editan en los dos archivos JSON de traducción, conservando las claves.
+Cada evento admite `description` y los campos opcionales `description2`, `description3`, `description4` y `description5`. El componente solo muestra los que estén definidos.
 
 ### Música
 
-El reproductor actual espera este archivo:
+El reproductor espera:
 
 ```text
 public/assets/audio/suerte.mp3
 ```
 
-Para utilizar otro nombre, cambia también esta línea de
-`src/app/services/music.service.ts`:
+Los navegadores móviles requieren una interacción del usuario antes de reproducir audio. El control flotante permite iniciar y pausar la canción.
 
-```typescript
-private readonly audio = new Audio('assets/audio/mi-cancion.mp3');
-```
+### Identidad visual
 
-El volumen acepta valores entre `0` y `1`:
-
-```typescript
-this.audio.volume = 0.35; // 35 %
-```
-
-La música no comienza automáticamente. Los navegadores móviles requieren que la persona
-pulse primero el botón flotante. Usa únicamente audio propio o con autorización para
-publicarlo.
-
-### Colores y tipografías
-
-Las variables de `src/styles.scss` controlan la identidad visual:
+Las variables principales están en `src/styles.scss`:
 
 ```scss
 :root {
   --cream: #fff8f1;
+  --blush: #f7dfdc;
   --rose: #c94d62;
   --wine: #773747;
+  --gold: #c89b57;
+  --shadow: 0 28px 80px rgba(101, 47, 59, 0.16);
 }
 ```
 
-Cambiar una variable actualiza todos los componentes que la utilizan.
+## Responsive y accesibilidad
 
-## Comandos disponibles
+- La interfaz funciona en escritorio, tablet, Android y iPhone.
+- Los botones flotantes se mantienen separados de la navegación móvil.
+- Los controles interactivos son botones reales y muestran foco visible.
+- Las imágenes relevantes incluyen texto alternativo.
+- Las regiones dinámicas importantes utilizan `aria-live`.
+- Las capas decorativas utilizan `pointer-events: none`.
+- Todas las animaciones contemplan `prefers-reduced-motion`.
 
-| Comando                | Uso                                                         |
-| ---------------------- | ----------------------------------------------------------- |
-| `npm start`            | Inicia el servidor local de desarrollo.                     |
-| `npm run build`        | Genera el sitio optimizado en `dist/carta-virtual/browser`. |
-| `npm run format`       | Aplica el formato definido por Prettier.                    |
-| `npm run format:check` | Comprueba el formato sin modificar archivos.                |
-| `npm run watch`        | Compila nuevamente cuando detecta cambios.                  |
+## Comandos
 
-## Publicar con GitHub Pages
+| Comando                | Uso                                             |
+| ---------------------- | ----------------------------------------------- |
+| `npm start`            | Servidor de desarrollo.                         |
+| `npm run build`        | Compilación optimizada en `dist/carta-virtual`. |
+| `npm run watch`        | Recompila al detectar cambios.                  |
+| `npm run format`       | Formatea el proyecto con Prettier.              |
+| `npm run format:check` | Comprueba el formato.                           |
 
-### Primera publicación
-
-1. Crea un repositorio en GitHub.
-2. Sube el proyecto a la rama `main`.
-3. Abre **Settings → Pages** en el repositorio.
-4. En **Build and deployment → Source**, selecciona **GitHub Actions**.
-5. Ve a **Actions → Deploy Angular to GitHub Pages → Run workflow**.
-
-El paso 4 es obligatorio. Si se omite, `actions/configure-pages` devuelve
-`Get Pages site failed` o `Not Found`.
-
-El workflow calcula automáticamente el subdirectorio usando el nombre del repositorio:
-
-```bash
-npm run build -- --base-href "/nombre-del-repositorio/"
-```
-
-El sitio queda disponible en:
+## Estructura principal
 
 ```text
-https://usuario.github.io/nombre-del-repositorio/
+public/assets/
+├── audio/
+├── i18n/
+└── images/
+src/app/
+├── components/
+│   ├── love-letter/
+│   ├── memory-gallery/
+│   ├── reasons-i-love-you/
+│   ├── relationship-timeline/
+│   └── welcome-screen/
+├── config/
+├── models/
+├── pages/
+│   ├── celebration/
+│   ├── home-question/
+│   ├── introduction/
+│   └── letter/
+├── services/
+└── shared/
 ```
 
-### Publicar cambios posteriores
+## Publicación con GitHub Pages
 
-```bash
-git add .
-git commit -m "Actualiza la carta"
-git push origin main
-```
+1. Sube el proyecto a la rama `main`.
+2. En GitHub abre **Settings → Pages**.
+3. Selecciona **GitHub Actions** como fuente.
+4. Ejecuta el workflow de despliegue o realiza un nuevo `push`.
 
-Cada `push` a `main` vuelve a compilar y publicar el sitio conservando el mismo enlace.
-El proceso puede tardar varios minutos. Si el teléfono muestra una versión anterior,
-actualiza la página o prueba una pestaña privada.
-
-## Estructura del proyecto
-
-```text
-.
-├── .github/workflows/deploy.yml  # Compilación y publicación en Pages
-├── docs/                         # Documentación técnica adicional
-├── public/assets/
-│   ├── audio/                    # Canción utilizada por MusicService
-│   ├── i18n/                     # Catálogos JSON español e inglés
-│   └── images/                   # Ilustraciones y fotografías
-├── src/
-│   ├── app/
-│   │   ├── components/           # Secciones exclusivas de la carta
-│   │   ├── config/               # Contenido editable
-│   │   ├── models/               # Contratos TypeScript
-│   │   ├── pages/                # Pantallas asociadas a rutas
-│   │   ├── services/             # Música y lógica global
-│   │   ├── shared/               # Componentes usados en varias páginas
-│   │   ├── app.component.*       # Contenedor raíz
-│   │   └── app.routes.ts         # Tabla de navegación
-│   ├── index.html                # Documento anfitrión de Angular
-│   ├── main.ts                   # Punto de arranque
-│   └── styles.scss               # Estilos y variables globales
-├── angular.json                  # Configuración del compilador Angular
-└── package.json                  # Dependencias y comandos npm
-```
-
-Cada componente vive en una carpeta propia con tres archivos:
-
-```text
-nombre-del-componente/
-├── nombre-del-componente.component.ts    # Estado y comportamiento
-├── nombre-del-componente.component.html  # Estructura visual
-└── nombre-del-componente.component.scss  # Estilos encapsulados
-```
+El workflow configura automáticamente el `base-href` según el nombre del repositorio.
 
 ## Solución de problemas
 
 ### No se escucha la música
 
 - Confirma que existe `public/assets/audio/suerte.mp3`.
-- Respeta exactamente mayúsculas y minúsculas; GitHub Pages distingue `Suerte.mp3` de
-  `suerte.mp3`.
+- Respeta mayúsculas y minúsculas.
 - Pulsa el control de música antes de esperar reproducción.
-- Revisa la consola del navegador por errores `404`.
 
-### GitHub Pages devuelve `Not Found`
+### No aparece una traducción
 
-Activa **Settings → Pages → Source → GitHub Actions** y vuelve a ejecutar el workflow.
+- Comprueba que la clave exista en ambos JSON.
+- Verifica que la ruta de la clave coincida exactamente con `LOVE_CONFIG` o la plantilla.
+- Revisa comas y llaves y ejecuta `npm run build`.
 
-### La página publicada no encuentra imágenes o scripts
+### Una imagen no carga
 
-No fijes manualmente un `base-href` con otro repositorio. El workflow lo construye desde
-`${{ github.event.repository.name }}`.
+- Guarda el archivo en `public/assets/images`.
+- Usa una ruta que empiece por `assets/images/`.
+- Comprueba el nombre y la extensión exactos.
 
-### El build falla después de editar textos
+### La publicación muestra una versión anterior
 
-Revisa comillas, comas y corchetes en `love.config.ts`, y ejecuta:
-
-```bash
-npm run format
-npm run build
-```
-
-## Accesibilidad
-
-- Los controles muestran foco visible al navegar con teclado.
-- Las imágenes relevantes incluyen texto alternativo.
-- Los mensajes dinámicos utilizan regiones anunciables.
-- Las animaciones se reducen cuando el dispositivo tiene activado
-  `prefers-reduced-motion`.
-- El botón “No” deja de moverse después de varios intentos y vuelve a su posición inicial.
-
-La ilustración de los ositos fue generada originalmente para este proyecto y puede
-reemplazarse por otra imagen autorizada.
+Espera a que finalice GitHub Actions y después actualiza la página o abre una pestaña privada.

@@ -144,6 +144,11 @@
     "PREVIOUS": "Ver la razón anterior",
     "NEXT": "Ver la siguiente razón",
     "ITEMS": {
+      "SMILE": "Tu sonrisa.",
+      "FEELING": "La forma en que me haces sentir.",
+      "PERSONALITY": "Tus ocurrencias.",
+      "LISTENING": "Tu manera de escucharme.",
+      "MOMENTS": "Todos los momentos que compartimos.",
       "1": "Tu perfecta sonrisa.",
       "2": "La forma en que me haces sentir.",
       "3": "Tus ocurrencias.",
