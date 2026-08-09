@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FinalMessageComponent } from '../../components/final-message/final-message.component';
 import { LoveLetterComponent } from '../../components/love-letter/love-letter.component';
@@ -24,6 +24,8 @@ import { RelationshipTimelineComponent } from '../../components/relationship-tim
 /** Página contenedora del recorrido vertical posterior a la celebración. */
 export class LetterPageComponent {
   private readonly router = inject(Router);
+  private readonly route = inject(ActivatedRoute);
+  readonly openLetterInitially = this.route.snapshot.queryParamMap.get('open') === 'true';
 
   scrollTo(id: string): void {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

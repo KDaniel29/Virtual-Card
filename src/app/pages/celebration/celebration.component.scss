@@ -9,19 +9,38 @@
 }
 
 section {
-  max-width: 720px;
+  position: relative;
+  z-index: 1;
+  width: min(720px, 100%);
   padding: clamp(1.5rem, 5vw, 3rem);
   text-align: center;
   background: rgba(255, 255, 255, 0.72);
   border-radius: 2.5rem;
   box-shadow: var(--shadow);
   animation: pop 0.7s ease both;
+
+  &.celebrating {
+    h1 {
+      animation: title-celebrate 0.75s ease;
+    }
+    .title-heart {
+      animation: heart-celebrate 0.75s ease;
+    }
+    .celebration-image {
+      animation: image-celebrate 0.75s ease;
+    }
+  }
 }
 
 h1 {
   margin: 0.5rem 0 1.2rem;
   color: var(--wine);
   font: 700 clamp(2.8rem, 8vw, 5rem) / 1 var(--script);
+}
+
+.title-heart {
+  display: inline-block;
+  filter: drop-shadow(0 0 0 transparent);
 }
 
 .kicker {
@@ -36,29 +55,274 @@ p {
   color: var(--muted);
 }
 
+.celebration-image {
+  display: block;
+  width: min(260px, 70vw);
+  height: auto;
+  margin: 1.5rem auto;
+  object-fit: contain;
+}
+
+.celebration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 1.4rem;
+}
+
 button {
+  position: relative;
+  min-height: 52px;
   padding: 1rem 1.6rem;
-  color: #fff;
+  overflow: hidden;
   font-weight: 800;
   cursor: pointer;
-  background: var(--wine);
-  border: 0;
   border-radius: 999px;
-  box-shadow: 0 10px 22px #8f3e4d40;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.02);
+  }
+  &:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  &:disabled {
+    cursor: default;
+  }
 }
 
-.confetti i {
+.celebrate-wrap {
+  position: relative;
+
+  &.is-celebrating .click-halo {
+    animation: romantic-halo 0.65s ease-out both;
+  }
+}
+
+.click-halo {
   position: absolute;
-  top: -3rem;
-  left: calc(var(--i) * 8%);
-  font-style: normal;
-  animation: fall calc(3s + var(--i) * 0.15s) ease-in infinite;
-  animation-delay: calc(var(--i) * -0.3s);
+  z-index: 0;
+  inset: 5%;
+  background: rgba(201, 77, 98, 0.3);
+  border: 1px solid rgba(201, 77, 98, 0.3);
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-@keyframes fall {
+.celebrate-button {
+  z-index: 1;
+  color: #fff;
+  background: linear-gradient(135deg, #9b4960, var(--wine));
+  border: 1px solid var(--wine);
+  box-shadow: 0 10px 22px #8f3e4d40;
+
+  &.is-celebrating {
+    animation: button-celebrate 0.8s ease both;
+
+    &::after {
+      animation: click-shine 0.7s ease-out both;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    top: -60%;
+    left: -55%;
+    width: 28%;
+    height: 220%;
+    content: '';
+    background: linear-gradient(90deg, transparent, #ffffff88, transparent);
+    transform: rotate(18deg);
+    animation: button-shine 4s 1.2s ease-in-out infinite;
+  }
+}
+
+.button-label {
+  position: relative;
+  z-index: 1;
+}
+
+.letter-button {
+  color: var(--wine);
+  background: #fff9f5;
+  border: 1px solid #d99b9e;
+  box-shadow: 0 8px 18px #8f3e4d20;
+  animation: letter-button-in 0.45s 0.14s ease both;
+
+  &:hover {
+    background: var(--blush);
+  }
+}
+
+.letter-icon {
+  display: inline-block;
+  margin-left: 0.3rem;
+  animation: letter-icon-in 0.55s 0.22s ease both;
+}
+
+.celebration-particles {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  font-size: var(--size);
+  font-style: normal;
+  line-height: 1;
+  opacity: 0;
+  filter: blur(var(--blur)) drop-shadow(0 2px 4px #7737472b);
+  will-change: transform, opacity;
+  pointer-events: none;
+
+  &.local {
+    animation: local-burst var(--duration) var(--delay) cubic-bezier(0.15, 0.75, 0.3, 1) both;
+  }
+
+  &.ambient {
+    animation: ambient-rise var(--duration) var(--delay) ease-out both;
+  }
+
+  &.heart {
+    color: var(--rose);
+  }
+  &.sparkle {
+    color: var(--gold);
+  }
+}
+
+@keyframes local-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0);
+  }
+  14% {
+    opacity: var(--particle-opacity);
+  }
+  48% {
+    opacity: var(--particle-opacity);
+    transform: translate(calc(-50% + var(--curve-x)), var(--curve-y)) scale(var(--particle-scale))
+      rotate(var(--mid-rotation));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--move-x)), var(--move-y)) scale(var(--particle-scale))
+      rotate(var(--rotation));
+  }
+}
+
+@keyframes ambient-rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 15px) scale(0.75) rotate(0);
+  }
+  20%,
+  70% {
+    opacity: var(--particle-opacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--move-x)), var(--move-y)) scale(var(--particle-scale))
+      rotate(var(--rotation));
+  }
+}
+
+@keyframes title-celebrate {
+  45% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes heart-celebrate {
+  45% {
+    filter: drop-shadow(0 0 10px #e7657eaa);
+    transform: translateY(-4px) rotate(10deg) scale(1.16);
+  }
+}
+
+@keyframes image-celebrate {
+  45% {
+    transform: translateY(-5px) scale(1.015);
+  }
+}
+
+@keyframes letter-button-in {
+  from {
+    opacity: 0;
+    transform: translateX(-12px) scale(0.96);
+  }
+}
+
+@keyframes letter-icon-in {
+  0% {
+    opacity: 0;
+    transform: translateY(3px) rotate(-6deg);
+  }
+  55% {
+    transform: translateY(-3px) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes romantic-halo {
+  from {
+    opacity: 0.45;
+    transform: scale(0.5);
+  }
   to {
-    transform: translateY(110vh) rotate(300deg);
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes button-celebrate {
+  0% {
+    transform: scale(1);
+  }
+  16% {
+    transform: scale(0.94);
+  }
+  48% {
+    transform: scale(1);
+  }
+  76% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes click-shine {
+  from {
+    left: -55%;
+  }
+  to {
+    left: 135%;
+  }
+}
+
+@keyframes button-shine {
+  0%,
+  72% {
+    left: -55%;
+  }
+  90%,
+  100% {
+    left: 135%;
   }
 }
 
@@ -69,12 +333,48 @@ button {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .confetti {
+@media (max-width: 520px) {
+  .celebration {
+    padding: 1rem;
+  }
+  .celebration-actions {
+    flex-direction: column;
+  }
+  button {
+    width: 100%;
+  }
+  .celebrate-wrap {
+    width: 100%;
+  }
+  .particle:nth-child(3n) {
     display: none;
   }
+}
 
-  section {
+@media (prefers-reduced-motion: reduce) {
+  section,
+  section.celebrating h1,
+  section.celebrating .title-heart,
+  section.celebrating .celebration-image,
+  .celebrate-button.is-celebrating,
+  .celebrate-wrap.is-celebrating .click-halo,
+  .celebrate-button::after {
     animation: none;
+  }
+
+  .particle {
+    animation-name: particle-fade;
+    filter: none;
+  }
+}
+
+@keyframes particle-fade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  35%,
+  70% {
+    opacity: 0.6;
   }
 }

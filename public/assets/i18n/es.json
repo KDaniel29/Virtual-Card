@@ -8,6 +8,12 @@
     "EN": "EN"
   },
   "INTRO": {
+    "WELCOME": {
+      "EYEBROW": "UNA PEQUEÑA SORPRESA PARA TI ♡",
+      "TITLE": "Tengo algo que quiero mostrarte...",
+      "MESSAGE": "Preparé este pequeño detalle especialmente para usted. 🥰",
+      "START": "Comenzar ♡"
+    },
     "EYEBROW": "Antes de hacerte una pregunta",
     "TITLE": "Hola, señorita Julied.",
     "SUBTITLE": "Preparé unas palabras para usted. Tome su tiempo para leerlas. ♥️",
@@ -58,6 +64,11 @@
     "RESPECT_MESSAGE": "No pasa nada. Lo más importante es que te sientas cómoda y puedas elegir con libertad. 🤍"
   },
   "CELEBRATION": {
+    "ACTIONS": {
+      "CELEBRATE": "¡Celebrar este momento! 💖",
+      "CELEBRATE_AGAIN": "Celebrar otra vez 💖",
+      "OPEN_LETTER": "Volver al inicio de la carta"
+    },
     "KICKER": "Nuestro siguiente capítulo comienza aquí",
     "TITLE": "¡Sabía que dirías que sí!",
     "MESSAGE": "Prometo cuidar esta historia con ternura, paciencia y muchas sonrisas.",
@@ -91,12 +102,12 @@
     "NEXT_PAGE": "Siguiente",
     "PAGE_COUNTER": "Hoja {{current}} de {{total}}",
     "PARAGRAPHS": {
-      "FIRST": "Espero que estés muy muy bien y que la estés pasando de maravilla. Agradezco mucho que me invvitaras a un momento tan especial para ti como lo es ver a Paty quién ha sido tu artista favorita desde niña en vivo por primera vez. 🥰",
+      "FIRST": "Espero que estés muy muy bien y que la estés pasando de maravilla. Agradezco mucho que me invitaras a un momento tan especial para ti como lo es ver a Paty en vivo por primera vez, quién ha sido tu artista favorita desde niña. 🥰",
       "SECOND": "No puedo creer lo increíble que está siendo todo esto señorita.🥰 Sinceramente, si al niño de 10 años que le encantaba mirarte y que le gustaste muchísimo con tan solo verte, le dijeran que pasaría todo un fin de semana completo con su crush visitando museos, creando recuerdos, divirtiéndose todo el fin de semana juntos, nunca se lo creería. 🤭",
       "THIRD": "De hecho, tampoco se creería que también le gustas, para mí eso siempre fue un sueño y hoy usted me lo está haciendo realidad. ✨ Siéndote sincero, yo te creía inalcanzable para mí y no tanto porque tuviera una baja autoestima o algo así, sino porque eres tan hermosa que penseé que no tendría oportunidad entre tantos hombres.",
       "FOURTH": "Pase lo que pase en este viaje, quiero agradecerte por todo lo que me has enseñado, por todo aquello que quizás yo sabía que estaba ahí pero simplemente lo ignoraba y cuando llegaste a mi vida me dí cuenta que todo eso es más importante de lo que pensaba. ♥️",
       "FIFTH": "Amo todas tus pláticas tan interesantes, amo tu pasión por ayudar a los demás, por ser parte de todas esas mujeres que no se quedan calladas y que defienden con orgullo todo eso que tanto les costó conseguir. Admiro toda tu entrega y sueños de tener tu propia fundación que estoy seguro que lo lograrás y podrás ayudar a muchísimos niños y mujeres, y me encantaría estar presente el día que cumplas tus sueños. 🫶✨",
-      "SIXTH": "Gracias al destino, a Dios o a lo que sea que nos haya permitido conocernos más a fondo ahora, justo cuando cada quién tiene su vida en orden, cuando cada quien puede vivir su vida soltero y que el hecho de querer estar en una relación sea realmente por atracción y mo por sentimiento de soledad. No me deja de retumbar en la mente lo que me respondiste cuando te pregunté que hubiera pasado si nos encontrábamos en otro momento. No sé que vaya a psar a partir de hoy, si me aceptes para formar parte de tu vida de otra manera o simplemente nos quedemos como mejores amigos pero quiero que sepas que he desarrollado un cariño por tí que no sentía en mucho tiempo, sigo pensando como fue posible todo esto, el estar juntos en este viaje, en este momento, en este lugar y poder tener la oportunidad de pasar uno de los momentos más felices de tu vida a tu lado, simplemente gracias por la oportunidad. 💖"
+      "SIXTH": "Gracias al destino, a Dios o a lo que sea que nos haya permitido conocernos más a fondo ahora, justo cuando cada quién tiene su vida en orden, cuando cada quien puede vivir su vida soltero y que el hecho de querer estar en una relación sea realmente por atracción y no por sentimiento de soledad. No me deja de retumbar en la mente lo que me respondiste cuando te pregunté que hubiera pasado si nos encontrábamos en otro momento. No sé que vaya a psar a partir de hoy, si me aceptes para formar parte de tu vida de otra manera o simplemente nos quedemos como mejores amigos pero quiero que sepas que he desarrollado un cariño por tí que no sentía en mucho tiempo, sigo pensando como fue posible todo esto, el estar juntos en este viaje, en este momento, en este lugar y poder tener la oportunidad de pasar uno de los momentos más felices de tu vida a tu lado, simplemente gracias por la oportunidad. 💖"
 
     }
   },

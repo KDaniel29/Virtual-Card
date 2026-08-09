@@ -22,6 +22,7 @@
   @if (opened()) {
     @for (page of visiblePage(); track currentPageIndex()) {
       <article
+        #letterPaper
         id="letter-paper"
         class="paper"
         [class.page-next]="pageDirection() === 'next'"

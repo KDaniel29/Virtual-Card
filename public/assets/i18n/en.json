@@ -8,6 +8,12 @@
     "EN": "EN"
   },
   "INTRO": {
+    "WELCOME": {
+      "EYEBROW": "A LITTLE SURPRISE FOR YOU ♡",
+      "TITLE": "There is something I want to show you...",
+      "MESSAGE": "I made this little detail especially for you.",
+      "START": "Begin ♡"
+    },
     "EYEBROW": "Before I ask you something",
     "TITLE": "Hello, my favorite person",
     "SUBTITLE": "I prepared a few words for you. Take all the time you need to read them.",
@@ -58,6 +64,11 @@
     "RESPECT_MESSAGE": "That's okay. What matters most is that you feel comfortable and free to choose. 🤍"
   },
   "CELEBRATION": {
+    "ACTIONS": {
+      "CELEBRATE": "Celebrate this moment! 💖",
+      "CELEBRATE_AGAIN": "Celebrate again 💖",
+      "OPEN_LETTER": "Back to the start of the letter"
+    },
     "KICKER": "Our next chapter begins here",
     "TITLE": "I knew you would say yes!",
     "MESSAGE": "I promise to care for this story with tenderness, patience, and lots of smiles.",

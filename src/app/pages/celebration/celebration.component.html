@@ -1,16 +1,65 @@
 <main class="celebration">
-  <div class="confetti" aria-hidden="true">
-    @for (piece of pieces; track $index) {
-      <i [style.--i]="$index">{{ piece }}</i>
+  <div class="celebration-particles" aria-hidden="true">
+    @for (particle of particles(); track particle.id) {
+      <i
+        [class]="'particle ' + particle.type + ' ' + particle.layer + ' ' + particle.depth"
+        [style.--x]="particle.x + 'px'"
+        [style.--y]="particle.y + 'px'"
+        [style.--size]="particle.size + 'px'"
+        [style.--delay]="particle.delay + 's'"
+        [style.--duration]="particle.duration + 's'"
+        [style.--move-x]="particle.moveX + 'px'"
+        [style.--move-y]="particle.moveY + 'px'"
+        [style.--rotation]="particle.rotation + 'deg'"
+        [style.--particle-scale]="particle.scale"
+        [style.--particle-opacity]="particle.opacity"
+        [style.--blur]="particle.blur + 'px'"
+        [style.--curve-x]="particle.curveX + 'px'"
+        [style.--curve-y]="particle.curveY + 'px'"
+        [style.--mid-rotation]="particle.midRotation + 'deg'"
+      >
+        {{ particle.symbol }}
+      </i>
     }
   </div>
-  <section>
+
+  <section [class.celebrating]="celebrationActive()">
     <p class="kicker">{{ 'CELEBRATION.KICKER' | translate }}</p>
-    <h1>{{ 'CELEBRATION.TITLE' | translate }} 💖</h1>
-    <app-chibi-bears [compact]="true" />
+    <h1>
+      {{ 'CELEBRATION.TITLE' | translate }}
+      <span class="title-heart" aria-hidden="true">💖</span>
+    </h1>
+    <img class="celebration-image" src="assets/images/ositos.gif" alt="Ilustración romántica" />
     <p>{{ 'CELEBRATION.MESSAGE' | translate }}</p>
-    <button (click)="openLetter()">
-      {{ 'CELEBRATION.OPEN_LETTER' | translate }} <span>💌</span>
-    </button>
+
+    <div class="celebration-actions">
+      <div class="celebrate-wrap" [class.is-celebrating]="celebrationActive()">
+        <span class="click-halo" aria-hidden="true"></span>
+        <button
+          #celebrateButton
+          type="button"
+          class="celebrate-button"
+          [class.is-celebrating]="celebrationActive()"
+          [disabled]="celebrationActive()"
+          (click)="triggerCelebration()"
+        >
+          <span class="button-label">
+            {{
+              (hasCelebrated()
+                ? 'CELEBRATION.ACTIONS.CELEBRATE_AGAIN'
+                : 'CELEBRATION.ACTIONS.CELEBRATE'
+              ) | translate
+            }}
+          </span>
+        </button>
+      </div>
+
+      @if (hasCelebrated()) {
+        <button type="button" class="letter-button" (click)="openLetter()">
+          {{ 'CELEBRATION.ACTIONS.OPEN_LETTER' | translate }}
+          <span class="letter-icon" aria-hidden="true">💌</span>
+        </button>
+      }
+    </div>
   </section>
 </main>

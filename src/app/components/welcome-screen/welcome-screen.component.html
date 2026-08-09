@@ -1,0 +1,32 @@
+<main class="welcome-screen" [class.leaving]="leaving()" aria-labelledby="welcome-title">
+  <div class="glow glow-left" aria-hidden="true"></div>
+  <div class="glow glow-right" aria-hidden="true"></div>
+
+  <div class="welcome-hearts" aria-hidden="true">
+    <span>♡</span>
+    <span>♥</span>
+    <span>✦</span>
+    <span>♡</span>
+    <span>✧</span>
+  </div>
+
+  <section class="welcome-card">
+    <div class="illustration-wrap">
+      <img
+        src="assets/images/pinwino.gif"
+        [alt]="'BEARS.ALT' | translate"
+        class="illustration"
+      />
+    </div>
+
+    <p class="eyebrow reveal">{{ 'INTRO.WELCOME.EYEBROW' | translate }}</p>
+    <h1 id="welcome-title" class="reveal">
+      {{ 'INTRO.WELCOME.TITLE' | translate }}
+    </h1>
+    <p class="message reveal">{{ 'INTRO.WELCOME.MESSAGE' | translate }}</p>
+
+    <button type="button" class="start-button reveal" [disabled]="leaving()" (click)="begin()">
+      <span>{{ 'INTRO.WELCOME.START' | translate }}</span>
+    </button>
+  </section>
+</main>

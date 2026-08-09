@@ -1,4 +1,15 @@
-import { Component, DestroyRef, computed, inject, output, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  computed,
+  effect,
+  inject,
+  input,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -19,17 +30,23 @@ export class LoveLetterComponent {
   private readonly destroyRef = inject(DestroyRef);
 
   readonly config = LOVE_CONFIG;
+  readonly openInitially = input(false);
   readonly opened = signal(false);
   readonly continued = output<void>();
   readonly pages = signal<string[][]>([]);
   readonly currentPageIndex = signal(0);
   readonly pageDirection = signal<'next' | 'previous'>('next');
+  readonly letterPaper = viewChild<ElementRef<HTMLElement>>('letterPaper');
   readonly visiblePage = computed(() => {
     const page = this.pages()[this.currentPageIndex()];
     return page ? [page] : [];
   });
 
   constructor() {
+    effect(() => {
+      if (this.openInitially()) this.opened.set(true);
+    });
+
     this.translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       this.createPages();
     });
@@ -50,6 +67,12 @@ export class LoveLetterComponent {
     if (this.currentPageIndex() >= this.pages().length - 1) return;
     this.pageDirection.set('next');
     this.currentPageIndex.update((index) => index + 1);
+    setTimeout(() => {
+      this.letterPaper()?.nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
   }
 
   private createPages(): void {

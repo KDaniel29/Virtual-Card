@@ -47,6 +47,24 @@ header {
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
   animation: card-in 0.45s ease both;
+
+  &.card-next {
+    animation: card-next 0.78s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  &.card-previous {
+    animation: card-previous 0.78s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  &.card-leaving {
+    animation: card-out 0.32s ease-in both;
+    pointer-events: none;
+  }
+
+  .image-space,
+  .card-copy {
+    animation: card-content-in 0.68s 0.14s ease both;
+  }
 }
 
 .image-space {
@@ -160,9 +178,51 @@ button {
   }
 }
 
+@keyframes card-next {
+  from {
+    opacity: 0;
+    transform: translateX(34px) scale(0.985);
+  }
+}
+
+@keyframes card-previous {
+  from {
+    opacity: 0;
+    transform: translateX(-34px) scale(0.985);
+  }
+}
+
+@keyframes card-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.99);
+  }
+}
+
+@keyframes card-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
 @media (max-width: 700px) {
+  .introduction {
+    align-content: start;
+    padding-bottom: 7rem;
+  }
+
   .message-card {
     grid-template-columns: 1fr;
+
+    &.card-next,
+    &.card-previous {
+      animation-duration: 0.85s;
+    }
+
+    &.card-leaving {
+      animation-duration: 0.32s;
+    }
   }
 
   .image-space {
@@ -176,10 +236,20 @@ button {
   .card-copy {
     text-align: center;
   }
+
+  nav {
+    position: relative;
+    z-index: 2;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .message-card {
     animation: none;
+
+    .image-space,
+    .card-copy {
+      animation: none;
+    }
   }
 }

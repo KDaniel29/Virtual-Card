@@ -6,7 +6,7 @@
   <button (click)="scrollTo('pregunta-especial')">{{ 'NAV.SPECIAL_QUESTION' | translate }}</button>
 </nav>
 
-<app-love-letter (continued)="scrollTo('momentos')" />
+<app-love-letter [openInitially]="openLetterInitially" (continued)="scrollTo('momentos')" />
 <app-memory-gallery />
 <app-reasons-i-love-you />
 <app-relationship-timeline />
