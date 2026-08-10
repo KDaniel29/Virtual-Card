@@ -77,6 +77,7 @@
   "NAV": {
     "ARIA": "Letter sections",
     "LETTER": "Letter",
+    "SOUNDTRACK": "Playlist",
     "MEMORIES": "Memories",
     "REASONS": "Reasons",
     "STORY": "Story",
@@ -87,6 +88,13 @@
     "TITLE": "Special question",
     "INTRO": "There is something very important I want to ask you.",
     "OPEN": "Go to the question"
+  },
+  "SPOTIFY_CARD": {
+    "EYEBROW": "OUR SOUNDTRACK ♡",
+    "TITLE": "Songs that make me think of you",
+    "DESCRIPTION": "Some songs say the things I do not always know how to put into words.",
+    "BUTTON": "Listen on Spotify",
+    "ARIA_LABEL": "Open {{name}} on Spotify"
   },
   "LETTER": {
     "FOR": "For",
@@ -239,5 +247,26 @@
     "PAUSE_ARIA": "Pause music",
     "TITLE": "Romantic music",
     "UNAVAILABLE": "Add your song at public/assets/audio/suerte.mp3"
+  },
+  "MUSIC_PLAYER": {
+    "PLAYER_ARIA": "Music player",
+    "NOW_PLAYING": "Now playing",
+    "PLAY": "Play",
+    "PAUSE": "Pause",
+    "NEXT": "Next song",
+    "PREVIOUS": "Previous song",
+    "SHUFFLE": "Shuffle",
+    "REPEAT_OFF": "Repeat off",
+    "REPEAT_ALL": "Repeat all songs",
+    "REPEAT_ONE": "Repeat this song",
+    "VOLUME": "Volume",
+    "MUTE": "Mute",
+    "UNMUTE": "Unmute",
+    "PROGRESS": "Song progress",
+    "SHOW_PLAYLIST": "Show playlist",
+    "HIDE_PLAYLIST": "Hide playlist",
+    "EXPAND": "Expand player",
+    "COLLAPSE": "Minimize player",
+    "COVER_ALT": "Cover art for {{title}}"
   }
 }

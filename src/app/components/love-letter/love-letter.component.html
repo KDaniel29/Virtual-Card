@@ -1,4 +1,9 @@
-<section class="letter-stage" id="carta" aria-labelledby="letter-title">
+<section
+  class="letter-stage"
+  [class.opened]="opened()"
+  id="carta"
+  aria-labelledby="letter-title"
+>
   <div class="section-intro">
     <span>{{ 'LETTER.FOR' | translate }} {{ config.recipient | translate }}</span>
     <h2 id="letter-title">{{ 'LETTER.TITLE' | translate }}</h2>

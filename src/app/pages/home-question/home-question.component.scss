@@ -109,15 +109,23 @@ button {
 }
 
 @media (max-width: 720px) {
+  .welcome {
+    align-items: center;
+    padding: 1rem 1rem 11rem;
+  }
+
   .question-card {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
     min-height: auto;
-    padding: 1.2rem;
+    padding: 1.25rem clamp(1rem, 5vw, 1.6rem) 2rem;
     text-align: center;
+    border-radius: 2rem;
   }
 
   .art {
-    max-width: 22rem;
+    width: min(17rem, 76vw);
+    max-width: 100%;
     margin: auto;
   }
 
@@ -126,12 +134,57 @@ button {
   }
 
   .actions {
-    justify-content: center;
-    min-height: 7rem;
+    display: grid;
+    grid-template-columns: minmax(88px, 0.65fr) minmax(0, 1.65fr);
+    gap: 0.75rem;
+    min-height: 5.5rem;
+    margin-top: 1.25rem;
   }
 
-  h1 {
-    font-size: clamp(3rem, 15vw, 4.5rem);
+  h2 {
+    margin-top: 0.35rem;
+    font-size: clamp(2.8rem, 12vw, 3.8rem);
+    line-height: 1;
+  }
+
+  .eyebrow {
+    margin-top: 0;
+    font-size: 0.68rem;
+    line-height: 1.5;
+  }
+
+  .note {
+    margin: 1rem auto 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  button {
+    width: 100%;
+    min-height: 52px;
+    padding: 0.85rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .no {
+    white-space: normal;
+  }
+
+  .gentle {
+    margin-top: 0.75rem;
+    padding: 0 0.25rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 390px) {
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .yes,
+  .no:not(.free) {
+    min-height: 50px;
   }
 }
 

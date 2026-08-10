@@ -1,7 +1,8 @@
 nav {
   position: sticky;
-  top: 1rem;
-  z-index: 10;
+  top: max(1rem, env(safe-area-inset-top));
+  z-index: 35;
+  isolation: isolate;
   display: flex;
   gap: 0.2rem;
   width: max-content;
@@ -13,6 +14,7 @@ nav {
   border-radius: 999px;
   box-shadow: 0 8px 25px #64323c18;
   backdrop-filter: blur(10px);
+  transform: translateZ(0);
 
   button {
     padding: 0.55rem 0.8rem;
@@ -27,6 +29,12 @@ nav {
 
     &:hover {
       background: #f8dfdc;
+    }
+
+    &.active {
+      color: #fff;
+      background: var(--wine);
+      box-shadow: 0 5px 14px #77374735;
     }
   }
 }
@@ -51,7 +59,9 @@ nav {
       linear-gradient(145deg, #fffdf9e8, #fbe4e1d9);
     border: 1px solid #fff;
     border-radius: clamp(2rem, 5vw, 3.5rem);
-    box-shadow: 0 30px 90px #7737472b, inset 0 0 0 1px #eecbc666;
+    box-shadow:
+      0 30px 90px #7737472b,
+      inset 0 0 0 1px #eecbc666;
     backdrop-filter: blur(18px);
 
     &::before,
@@ -118,7 +128,9 @@ nav {
     border: 1px solid var(--wine);
     border-radius: 999px;
     box-shadow: 0 10px 24px #74344135;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
 
     &:hover {
       box-shadow: 0 14px 28px #74344142;
@@ -170,23 +182,33 @@ nav {
 }
 
 @keyframes heart-pulse {
-  50% { transform: scale(1.09); }
+  50% {
+    transform: scale(1.09);
+  }
 }
 
 @keyframes sparkle {
-  50% { opacity: 0.35; transform: rotate(20deg) scale(0.75); }
+  50% {
+    opacity: 0.35;
+    transform: rotate(20deg) scale(0.75);
+  }
 }
 
 @keyframes invitation-glow {
-  to { transform: translate(25px, 18px) scale(1.12); }
+  to {
+    transform: translate(25px, 18px) scale(1.12);
+  }
 }
 
 @media (max-width: 800px) {
   nav {
-    top: 1rem;
+    top: max(0.75rem, env(safe-area-inset-top));
     justify-content: flex-start;
     width: calc(100% - 2rem);
+    margin-top: max(0.75rem, env(safe-area-inset-top));
     overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 0.5rem;
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
@@ -200,7 +222,6 @@ nav {
     font-size: 0.65rem;
     white-space: nowrap;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {

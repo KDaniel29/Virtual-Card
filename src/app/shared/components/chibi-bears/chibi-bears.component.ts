@@ -11,4 +11,5 @@ import { TranslatePipe } from '@ngx-translate/core';
 /** Ilustración compartida por las páginas de pregunta, celebración y mensaje final. */
 export class ChibiBearsComponent {
   @Input() compact = false;
+  @Input() imageSrc = 'assets/images/love.gif';
 }

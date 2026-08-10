@@ -209,7 +209,7 @@ button {
 @media (max-width: 700px) {
   .introduction {
     align-content: start;
-    padding-bottom: 7rem;
+    padding-bottom: 10rem;
   }
 
   .message-card {
@@ -240,6 +240,17 @@ button {
   nav {
     position: relative;
     z-index: 2;
+  }
+}
+
+@media (max-width: 420px) {
+  nav {
+    gap: 0.5rem;
+  }
+
+  nav button {
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
   }
 }
 

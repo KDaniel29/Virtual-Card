@@ -1,8 +1,141 @@
-<button
-  (click)="music.toggle()"
-  [attr.aria-label]="(music.playing() ? 'MUSIC.PAUSE_ARIA' : 'MUSIC.PLAY_ARIA') | translate"
-  [title]="(music.available() ? 'MUSIC.TITLE' : 'MUSIC.UNAVAILABLE') | translate"
->
-  {{ music.playing() ? 'Ⅱ' : '♪' }}
-  <span>{{ (music.playing() ? 'MUSIC.PAUSE' : 'MUSIC.PLAY') | translate }}</span>
-</button>
+@if (music.started() && music.currentSong(); as song) {
+  <aside
+    class="player"
+    [class.expanded]="expanded()"
+    [attr.aria-label]="'MUSIC_PLAYER.PLAYER_ARIA' | translate"
+  >
+    <button
+      type="button"
+      class="expand-button"
+      (click)="toggleExpanded()"
+      [attr.aria-label]="(expanded() ? 'MUSIC_PLAYER.COLLAPSE' : 'MUSIC_PLAYER.EXPAND') | translate"
+    >
+      {{ expanded() ? '⌄' : '⌃' }}
+    </button>
+
+    <div class="song-summary">
+      <div class="cover-wrap" [class.playing]="music.playing()">
+        <img
+          [src]="song.cover || fallbackCover"
+          [alt]="'MUSIC_PLAYER.COVER_ALT' | translate: { title: song.title }"
+          (error)="useFallbackCover($event)"
+        />
+        <span aria-hidden="true">♡</span>
+      </div>
+      <div class="song-copy">
+        <small>{{ 'MUSIC_PLAYER.NOW_PLAYING' | translate }}</small>
+        <strong>{{ song.title }}</strong>
+        <span>{{ song.artist }}</span>
+      </div>
+    </div>
+
+    @if (expanded()) {
+      <div class="progress-block">
+        <input
+          type="range"
+          min="0"
+          [max]="music.duration() || 0"
+          step="0.1"
+          [value]="music.currentTime()"
+          (input)="updateProgress($event)"
+          [attr.aria-label]="'MUSIC_PLAYER.PROGRESS' | translate"
+        />
+        <div class="times">
+          <span>{{ formatTime(music.currentTime()) }}</span>
+          <span>{{ formatTime(music.duration()) }}</span>
+        </div>
+      </div>
+    }
+
+    <div class="transport">
+      <button
+        type="button"
+        (click)="music.previous()"
+        [attr.aria-label]="'MUSIC_PLAYER.PREVIOUS' | translate"
+      >
+        ◀
+      </button>
+      <button
+        type="button"
+        class="play-button"
+        (click)="music.togglePlay()"
+        [attr.aria-label]="
+          (music.playing() ? 'MUSIC_PLAYER.PAUSE' : 'MUSIC_PLAYER.PLAY') | translate
+        "
+      >
+        {{ music.playing() ? 'Ⅱ' : '▶' }}
+      </button>
+      <button
+        type="button"
+        (click)="music.next()"
+        [attr.aria-label]="'MUSIC_PLAYER.NEXT' | translate"
+      >
+        ▶
+      </button>
+    </div>
+
+    @if (expanded()) {
+      <div class="secondary-controls">
+        <button
+          type="button"
+          [class.active]="music.shuffle()"
+          (click)="music.toggleShuffle()"
+          [attr.aria-label]="'MUSIC_PLAYER.SHUFFLE' | translate"
+        >
+          ⤨
+        </button>
+        <button
+          type="button"
+          [class.active]="music.repeatMode() !== 'off'"
+          (click)="music.toggleRepeat()"
+          [attr.aria-label]="'MUSIC_PLAYER.REPEAT_' + music.repeatMode().toUpperCase() | translate"
+        >
+          ↻<small>{{ music.repeatMode() === 'one' ? '1' : '' }}</small>
+        </button>
+        <button
+          type="button"
+          (click)="music.toggleMute()"
+          [attr.aria-label]="
+            (music.muted() ? 'MUSIC_PLAYER.UNMUTE' : 'MUSIC_PLAYER.MUTE') | translate
+          "
+        >
+          {{ music.muted() ? '🔇' : '🔊' }}
+        </button>
+        <input
+          class="volume"
+          type="range"
+          min="0"
+          max="1"
+          step="0.05"
+          [value]="music.muted() ? 0 : music.volume()"
+          (input)="updateVolume($event)"
+          [attr.aria-label]="'MUSIC_PLAYER.VOLUME' | translate"
+        />
+      </div>
+
+      <button type="button" class="playlist-toggle" (click)="togglePlaylist()">
+        {{
+          (playlistVisible() ? 'MUSIC_PLAYER.HIDE_PLAYLIST' : 'MUSIC_PLAYER.SHOW_PLAYLIST')
+            | translate
+        }}
+      </button>
+
+      @if (playlistVisible()) {
+        <ol class="playlist">
+          @for (item of music.songs; track item.id; let index = $index) {
+            <li>
+              <button
+                type="button"
+                [class.active]="index === music.currentSongIndex()"
+                (click)="music.selectSong(index)"
+              >
+                <span>{{ item.title }}</span>
+                <small>{{ item.artist }}</small>
+              </button>
+            </li>
+          }
+        </ol>
+      }
+    }
+  </aside>
+}

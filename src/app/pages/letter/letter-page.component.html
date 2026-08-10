@@ -1,12 +1,50 @@
 <nav [attr.aria-label]="'NAV.ARIA' | translate">
-  <button (click)="scrollTo('carta')">{{ 'NAV.LETTER' | translate }}</button>
-  <button (click)="scrollTo('momentos')">{{ 'NAV.MEMORIES' | translate }}</button>
-  <button (click)="scrollTo('razones')">{{ 'NAV.REASONS' | translate }}</button>
-  <button (click)="scrollTo('historia')">{{ 'NAV.STORY' | translate }}</button>
-  <button (click)="scrollTo('pregunta-especial')">{{ 'NAV.SPECIAL_QUESTION' | translate }}</button>
+  <button
+    [class.active]="activeSection() === 'carta'"
+    [attr.aria-current]="activeSection() === 'carta' ? 'location' : null"
+    (click)="scrollTo('carta')"
+  >
+    {{ 'NAV.LETTER' | translate }}
+  </button>
+  <button
+    [class.active]="activeSection() === 'banda-sonora'"
+    [attr.aria-current]="activeSection() === 'banda-sonora' ? 'location' : null"
+    (click)="scrollTo('banda-sonora')"
+  >
+    {{ 'NAV.SOUNDTRACK' | translate }}
+  </button>
+  <button
+    [class.active]="activeSection() === 'momentos'"
+    [attr.aria-current]="activeSection() === 'momentos' ? 'location' : null"
+    (click)="scrollTo('momentos')"
+  >
+    {{ 'NAV.MEMORIES' | translate }}
+  </button>
+  <button
+    [class.active]="activeSection() === 'razones'"
+    [attr.aria-current]="activeSection() === 'razones' ? 'location' : null"
+    (click)="scrollTo('razones')"
+  >
+    {{ 'NAV.REASONS' | translate }}
+  </button>
+  <button
+    [class.active]="activeSection() === 'historia'"
+    [attr.aria-current]="activeSection() === 'historia' ? 'location' : null"
+    (click)="scrollTo('historia')"
+  >
+    {{ 'NAV.STORY' | translate }}
+  </button>
+  <button
+    [class.active]="activeSection() === 'pregunta-especial'"
+    [attr.aria-current]="activeSection() === 'pregunta-especial' ? 'location' : null"
+    (click)="scrollTo('pregunta-especial')"
+  >
+    {{ 'NAV.SPECIAL_QUESTION' | translate }}
+  </button>
 </nav>
 
 <app-love-letter [openInitially]="openLetterInitially" (continued)="scrollTo('momentos')" />
+<app-spotify-card />
 <app-memory-gallery />
 <app-reasons-i-love-you />
 <app-relationship-timeline />

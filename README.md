@@ -102,7 +102,9 @@ En `prefers-reduced-motion` se crean menos partículas y se sustituyen los recor
 | Orden de las secciones                               | `src/app/pages/letter/letter-page.component.html` |
 | Pregunta y comportamiento de respuestas              | `src/app/pages/home-question/`                    |
 | Partículas y botones de celebración                  | `src/app/pages/celebration/`                      |
-| Reproductor de música                                | `src/app/services/music.service.ts`               |
+| Playlist y metadatos musicales                       | `src/app/config/music.config.ts`                  |
+| Estado y reproducción global                         | `src/app/services/music.service.ts`               |
+| Interfaz del reproductor                             | `src/app/shared/components/music-player/`         |
 | Colores y tipografías                                | `src/styles.scss`                                 |
 | Rutas                                                | `src/app/app.routes.ts`                           |
 | Español                                              | `public/assets/i18n/es.json`                      |
@@ -142,7 +144,7 @@ Para agregar contenido:
 4. Resuélvela con `TranslatePipe` en la plantilla.
 5. Ejecuta `npm run build`.
 
-El idioma inicial se obtiene del navegador, la preferencia se guarda en `localStorage` y español funciona como respaldo.
+El idioma se obtiene automáticamente del navegador: se utiliza inglés cuando el código comienza con `en` y español para cualquier otro idioma. No se muestra un selector manual y español funciona como respaldo.
 
 ## Personalización
 
@@ -178,13 +180,37 @@ Cada evento admite `description` y los campos opcionales `description2`, `descri
 
 ### Música
 
-El reproductor espera:
+El reproductor global utiliza una única instancia de `HTMLAudioElement`, alojada en `MusicService`. Como el servicio usa `providedIn: 'root'` y el componente visual vive en `AppComponent`, la canción, el tiempo, el volumen, shuffle y repeat se conservan durante los cambios de ruta.
+
+Incluye modos mini y expandido, play/pause, anterior/siguiente, progreso, tiempos, volumen, mute, repetición `off/all/one`, shuffle y playlist seleccionable.
+
+Coloca canciones en:
 
 ```text
-public/assets/audio/suerte.mp3
+public/assets/audio/
 ```
 
-Los navegadores móviles requieren una interacción del usuario antes de reproducir audio. El control flotante permite iniciar y pausar la canción.
+Coloca portadas en:
+
+```text
+public/assets/images/music/
+```
+
+Configura la playlist en `src/app/config/music.config.ts`:
+
+```typescript
+{
+  id: 2,
+  title: 'Mi canción',
+  artist: 'Mi artista',
+  src: 'assets/audio/mi-cancion.mp3',
+  cover: 'assets/images/music/mi-portada.jpg',
+}
+```
+
+No incluyas `public/` en las rutas usadas por Angular. Si falta una portada, se utiliza `assets/images/love.gif` como respaldo.
+
+El clic en **Comenzar ♡** llama directamente a `MusicService.start()`. Esto respeta las políticas de autoplay porque ocurre como consecuencia de una interacción. Si el navegador rechaza la reproducción, el reproductor queda pausado y permite iniciarla manualmente.
 
 ### Identidad visual
 

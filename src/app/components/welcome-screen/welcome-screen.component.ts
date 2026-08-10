@@ -1,5 +1,6 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { MusicService } from '../../services/music.service';
 
 const EXIT_ANIMATION_MS = 700;
 
@@ -12,12 +13,14 @@ const EXIT_ANIMATION_MS = 700;
 })
 /** Presenta la bienvenida antes de iniciar el recorrido principal. */
 export class WelcomeScreenComponent {
+  private readonly music = inject(MusicService);
   readonly start = output<void>();
   readonly leaving = signal(false);
 
   begin(): void {
     if (this.leaving()) return;
 
+    void this.music.start();
     this.leaving.set(true);
     setTimeout(() => this.start.emit(), EXIT_ANIMATION_MS);
   }

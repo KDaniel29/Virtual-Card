@@ -1,6 +1,8 @@
 <main class="welcome">
   <section class="question-card" #card aria-labelledby="main-question">
-    <div class="art"><app-chibi-bears [compact]="true" /></div>
+    <div class="art">
+      <app-chibi-bears [compact]="true" [imageSrc]="questionImage" />
+    </div>
     <div class="copy">
       <p class="eyebrow">{{ config.eyebrow | translate }}</p>
       <h2 id="main-question">{{ config.question | translate }}</h2>

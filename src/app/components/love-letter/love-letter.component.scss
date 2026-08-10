@@ -1,8 +1,12 @@
 .letter-stage {
   position: relative;
-  min-height: 100svh;
+  min-height: auto;
   padding: clamp(5rem, 10vw, 8rem) 1.2rem;
   text-align: center;
+
+  &.opened {
+    min-height: 100svh;
+  }
 }
 
 .section-intro {

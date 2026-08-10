@@ -13,6 +13,7 @@ import { ChibiBearsComponent } from '../../shared/components/chibi-bears/chibi-b
 })
 /** Primera página: administra la pregunta y la interacción del botón “No”. */
 export class HomeQuestionComponent {
+  readonly questionImage = 'assets/images/love_you.gif';
   private readonly router = inject(Router);
   readonly maxAttempts = 5;
   readonly config = LOVE_CONFIG;

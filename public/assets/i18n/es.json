@@ -77,6 +77,7 @@
   "NAV": {
     "ARIA": "Secciones de la carta",
     "LETTER": "Carta",
+    "SOUNDTRACK": "Playlist",
     "MEMORIES": "Momentos",
     "REASONS": "Razones",
     "STORY": "Historia",
@@ -87,6 +88,13 @@
     "TITLE": "Pregunta especial",
     "INTRO": "Hay algo muy importante que quiero preguntarte.",
     "OPEN": "Ir a la pregunta"
+  },
+  "SPOTIFY_CARD": {
+    "EYEBROW": "NUESTRA BANDA SONORA ♡",
+    "TITLE": "Canciones que me encantaría dedicarle a usted. 🥰",
+    "DESCRIPTION": "Hay canciones que dicen cosas que muhas veces no se pueden explicar pero se pueden sentir pot medio de ellas, espero que le guste... ✨",
+    "BUTTON": "Escuchar en Spotify",
+    "ARIA_LABEL": "Abrir {{name}} en Spotify"
   },
   "LETTER": {
     "FOR": "Para",
@@ -240,5 +248,26 @@
     "PAUSE_ARIA": "Pausar música",
     "TITLE": "Música romántica",
     "UNAVAILABLE": "Agrega tu canción en public/assets/audio/suerte.mp3"
+  },
+  "MUSIC_PLAYER": {
+    "PLAYER_ARIA": "Reproductor de música",
+    "NOW_PLAYING": "Reproduciendo ahora",
+    "PLAY": "Reproducir",
+    "PAUSE": "Pausar",
+    "NEXT": "Canción siguiente",
+    "PREVIOUS": "Canción anterior",
+    "SHUFFLE": "Reproducción aleatoria",
+    "REPEAT_OFF": "Repetición desactivada",
+    "REPEAT_ALL": "Repetir toda la lista",
+    "REPEAT_ONE": "Repetir esta canción",
+    "VOLUME": "Volumen",
+    "MUTE": "Silenciar",
+    "UNMUTE": "Activar sonido",
+    "PROGRESS": "Progreso de la canción",
+    "SHOW_PLAYLIST": "Ver playlist",
+    "HIDE_PLAYLIST": "Ocultar playlist",
+    "EXPAND": "Expandir reproductor",
+    "COLLAPSE": "Minimizar reproductor",
+    "COVER_ALT": "Portada de {{title}}"
   }
 }
