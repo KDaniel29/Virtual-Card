@@ -34,6 +34,31 @@
   backdrop-filter: blur(18px);
 }
 
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(540px, 100%);
+  gap: 1.15rem;
+}
+
+.language-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--wine);
+  text-align: center;
+  animation-delay: 0.55s;
+
+  p {
+    margin: 0;
+    font: 600 clamp(0.95rem, 2.5vw, 1.05rem) / 1.4 var(--serif);
+  }
+}
+
 .illustration-wrap {
   width: min(300px, 74vw);
   aspect-ratio: 16 / 10;

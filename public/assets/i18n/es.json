@@ -4,6 +4,7 @@
   },
   "LANGUAGE": {
     "LABEL": "Seleccionar idioma",
+    "QUESTION": "¿Cuál idioma quiere ver señorita?",
     "ES": "ES",
     "EN": "EN"
   },

@@ -10,23 +10,30 @@
     <span>✧</span>
   </div>
 
-  <section class="welcome-card">
-    <div class="illustration-wrap">
-      <img
-        src="assets/images/pinwino.gif"
-        [alt]="'BEARS.ALT' | translate"
-        class="illustration"
-      />
+  <div class="welcome-content">
+    <section class="welcome-card">
+      <div class="illustration-wrap">
+        <img
+          src="assets/images/pinwino.gif"
+          [alt]="'BEARS.ALT' | translate"
+          class="illustration"
+        />
+      </div>
+
+      <p class="eyebrow reveal">{{ 'INTRO.WELCOME.EYEBROW' | translate }}</p>
+      <h1 id="welcome-title" class="reveal">
+        {{ 'INTRO.WELCOME.TITLE' | translate }}
+      </h1>
+      <p class="message reveal">{{ 'INTRO.WELCOME.MESSAGE' | translate }}</p>
+
+      <button type="button" class="start-button reveal" [disabled]="leaving()" (click)="begin()">
+        <span>{{ 'INTRO.WELCOME.START' | translate }}</span>
+      </button>
+    </section>
+
+    <div class="language-choice reveal">
+      <p>{{ 'LANGUAGE.QUESTION' | translate }}</p>
+      <app-language-switcher />
     </div>
-
-    <p class="eyebrow reveal">{{ 'INTRO.WELCOME.EYEBROW' | translate }}</p>
-    <h1 id="welcome-title" class="reveal">
-      {{ 'INTRO.WELCOME.TITLE' | translate }}
-    </h1>
-    <p class="message reveal">{{ 'INTRO.WELCOME.MESSAGE' | translate }}</p>
-
-    <button type="button" class="start-button reveal" [disabled]="leaving()" (click)="begin()">
-      <span>{{ 'INTRO.WELCOME.START' | translate }}</span>
-    </button>
-  </section>
+  </div>
 </main>

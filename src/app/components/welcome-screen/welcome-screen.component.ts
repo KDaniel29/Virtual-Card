@@ -1,13 +1,14 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MusicService } from '../../services/music.service';
+import { LanguageSwitcherComponent } from '../../shared/components/language-switcher/language-switcher.component';
 
 const EXIT_ANIMATION_MS = 700;
 
 @Component({
   selector: 'app-welcome-screen',
   standalone: true,
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, LanguageSwitcherComponent],
   templateUrl: './welcome-screen.component.html',
   styleUrl: './welcome-screen.component.scss',
 })
