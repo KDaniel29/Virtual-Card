@@ -86,10 +86,26 @@ export const LOVE_CONFIG: LoveConfig = {
   ],
   memories: [
     // Agrega `image: 'assets/images/mi-foto.jpg'` a cualquier recuerdo para mostrar una foto.
-    { title: 'MEMORIES.ITEMS.FIRST.TITLE', caption: 'MEMORIES.ITEMS.FIRST.CAPTION' },
-    { title: 'MEMORIES.ITEMS.SPECIAL.TITLE', caption: 'MEMORIES.ITEMS.SPECIAL.CAPTION' },
-    { title: 'MEMORIES.ITEMS.FAVORITE.TITLE', caption: 'MEMORIES.ITEMS.FAVORITE.CAPTION' },
-    { title: 'MEMORIES.ITEMS.ADVENTURE.TITLE', caption: 'MEMORIES.ITEMS.ADVENTURE.CAPTION' },
+    {
+      title: 'MEMORIES.ITEMS.FIRST.TITLE',
+      caption: 'MEMORIES.ITEMS.FIRST.CAPTION',
+      image: 'assets/images/Foto_Juntos.jpeg',
+    },
+    {
+      title: 'MEMORIES.ITEMS.SPECIAL.TITLE',
+      caption: 'MEMORIES.ITEMS.SPECIAL.CAPTION',
+      image: 'assets/images/Primera_Cita.jpeg',
+    },
+    {
+      title: 'MEMORIES.ITEMS.FAVORITE.TITLE',
+      caption: 'MEMORIES.ITEMS.FAVORITE.CAPTION',
+      image: 'assets/images/Concierto.jpeg',
+    },
+    {
+      title: 'MEMORIES.ITEMS.ADVENTURE.TITLE',
+      caption: 'MEMORIES.ITEMS.ADVENTURE.CAPTION',
+      image: 'assets/images/Foto_Fav.jpeg',
+    },
   ],
   timeline: [
     {
