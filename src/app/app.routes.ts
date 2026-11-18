@@ -33,5 +33,12 @@ export const routes: Routes = [
         (component) => component.LetterPageComponent,
       ),
   },
+  {
+    path: 'mensajes',
+    loadComponent: () =>
+      import('./pages/messages/messages-page.component').then(
+        (component) => component.MessagesPageComponent,
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

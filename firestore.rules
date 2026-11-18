@@ -1,0 +1,45 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function access() {
+      return get(/databases/$(database)/documents/settings/access).data;
+    }
+    function isAdmin() {
+      return request.auth != null && request.auth.uid == access().adminUid;
+    }
+    function isRecipient() {
+      return request.auth != null && request.auth.uid == access().recipientUid;
+    }
+    function isMember() {
+      return isAdmin() || isRecipient();
+    }
+    match /settings/access {
+      allow get: if isMember();
+      allow list, write: if false;
+    }
+    match /messages/{messageId} {
+      allow read: if isMember();
+      allow create: if isAdmin()
+        && request.resource.data.keys().hasAll(['title', 'body', 'senderUid', 'recipientUid', 'createdAt', 'readAt'])
+        && request.resource.data.keys().hasOnly(['title', 'body', 'senderUid', 'recipientUid', 'createdAt', 'readAt'])
+        && request.resource.data.title is string
+        && request.resource.data.title.size() > 0
+        && request.resource.data.title.size() <= 80
+        && request.resource.data.body is string
+        && request.resource.data.body.size() > 0
+        && request.resource.data.body.size() <= 2000
+        && request.resource.data.senderUid == request.auth.uid
+        && request.resource.data.recipientUid == access().recipientUid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.readAt == null;
+      allow update: if isRecipient()
+        && resource.data.recipientUid == request.auth.uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['readAt'])
+        && request.resource.data.readAt == request.time;
+      allow delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

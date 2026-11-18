@@ -43,6 +43,12 @@
   </button>
 </nav>
 
+@if (messagingConfigured) {
+  <div class="messages-invitation">
+    <a routerLink="/mensajes">{{ 'MESSAGES.OPEN' | translate }}</a>
+  </div>
+}
+
 <app-love-letter [openInitially]="openLetterInitially" (continued)="scrollTo('momentos')" />
 <app-spotify-card />
 <app-memory-gallery />

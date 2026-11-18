@@ -1,5 +1,5 @@
 import { Component, DestroyRef, afterNextRender, inject, signal } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FinalMessageComponent } from '../../components/final-message/final-message.component';
 import { LoveLetterComponent } from '../../components/love-letter/love-letter.component';
@@ -7,6 +7,7 @@ import { MemoryGalleryComponent } from '../../components/memory-gallery/memory-g
 import { ReasonsILoveYouComponent } from '../../components/reasons-i-love-you/reasons-i-love-you.component';
 import { RelationshipTimelineComponent } from '../../components/relationship-timeline/relationship-timeline.component';
 import { SpotifyCardComponent } from '../../components/spotify-card/spotify-card.component';
+import { isMessagingConfigured } from '../../config/messages.config';
 
 @Component({
   selector: 'app-letter-page',
@@ -19,12 +20,14 @@ import { SpotifyCardComponent } from '../../components/spotify-card/spotify-card
     SpotifyCardComponent,
     FinalMessageComponent,
     TranslatePipe,
+    RouterLink,
   ],
   templateUrl: './letter-page.component.html',
   styleUrl: './letter-page.component.scss',
 })
 /** Página contenedora del recorrido vertical posterior a la celebración. */
 export class LetterPageComponent {
+  readonly messagingConfigured = isMessagingConfigured();
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
   private readonly destroyRef = inject(DestroyRef);

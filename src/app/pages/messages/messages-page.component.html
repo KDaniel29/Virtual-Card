@@ -1,0 +1,203 @@
+<main class="messages-page">
+  <a class="back-link" routerLink="/carta" [queryParams]="{ open: true }">
+    ← {{ 'MESSAGES.BACK' | translate }}
+  </a>
+  <header class="page-heading">
+    <span class="heart" aria-hidden="true">♡</span>
+    <p class="eyebrow">{{ 'MESSAGES.EYEBROW' | translate }}</p>
+    <h1>{{ 'MESSAGES.TITLE' | translate }}</h1>
+    <p>{{ 'MESSAGES.SUBTITLE' | translate }}</p>
+  </header>
+
+  @if (!inbox.configured) {
+    <section class="panel empty-state">
+      <p>{{ 'MESSAGES.COMING_SOON' | translate }}</p>
+    </section>
+  } @else if (!inbox.ready()) {
+    <p role="status" class="status">{{ 'MESSAGES.LOADING' | translate }}</p>
+  } @else if (!inbox.role()) {
+    <section class="panel login-panel" aria-labelledby="login-title">
+      <h2 id="login-title">{{ 'MESSAGES.LOGIN_TITLE' | translate }}</h2>
+      <p>{{ 'MESSAGES.LOGIN_DESCRIPTION' | translate }}</p>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+        <label for="message-email">{{ 'MESSAGES.EMAIL' | translate }}</label>
+        <input
+          id="message-email"
+          name="email"
+          type="email"
+          autocomplete="username"
+          inputmode="email"
+          maxlength="254"
+          required
+          [(ngModel)]="email"
+        />
+        <label for="message-password">{{ 'MESSAGES.PASSWORD' | translate }}</label>
+        <input
+          id="message-password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          [(ngModel)]="password"
+        />
+        <button type="submit" [disabled]="loginForm.invalid || inbox.busy() || !inbox.online()">
+          {{ (inbox.busy() ? 'MESSAGES.SIGNING_IN' : 'MESSAGES.SIGN_IN') | translate }}
+        </button>
+      </form>
+      <p class="hint">{{ 'MESSAGES.LOCAL_COPY' | translate }}</p>
+      @if (!inbox.online()) {
+        <p class="status" role="status">{{ 'MESSAGES.ERROR.OFFLINE' | translate }}</p>
+      }
+      @if (inbox.error()) {
+        <p class="error" role="alert">{{ inbox.error() | translate }}</p>
+      }
+      @if (inbox.email()) {
+        <button class="secondary" type="button" (click)="logout()">
+          {{ 'MESSAGES.SIGN_OUT' | translate }}
+        </button>
+      }
+    </section>
+  } @else {
+    <div class="account-bar">
+      <span>{{ inbox.email() }}</span>
+      <button type="button" class="secondary" [disabled]="inbox.saving()" (click)="logout()">
+        {{ 'MESSAGES.SIGN_OUT' | translate }}
+      </button>
+    </div>
+
+    @if (inbox.role() === 'recipient' && notifications.configured) {
+      <section class="panel notification-panel" aria-labelledby="notifications-title">
+        <h2 id="notifications-title">{{ 'MESSAGES.NOTIFICATIONS.TITLE' | translate }}</h2>
+        <p>{{ 'MESSAGES.NOTIFICATIONS.DESCRIPTION' | translate }}</p>
+        @if (notifications.subscribed()) {
+          <p class="status" role="status">{{ 'MESSAGES.NOTIFICATIONS.ACTIVE' | translate }}</p>
+        } @else if (notifications.needsIosInstall) {
+          <p>{{ 'MESSAGES.NOTIFICATIONS.IOS' | translate }}</p>
+        } @else if (!notifications.supported) {
+          <p>{{ 'MESSAGES.NOTIFICATIONS.UNSUPPORTED' | translate }}</p>
+        } @else {
+          <button
+            type="button"
+            (click)="notifications.subscribe()"
+            [disabled]="!notifications.canSubscribe() || !inbox.online()"
+          >
+            {{
+              (!notifications.ready() || notifications.busy()
+                ? 'MESSAGES.NOTIFICATIONS.WAIT'
+                : 'MESSAGES.NOTIFICATIONS.ENABLE'
+              ) | translate
+            }}
+          </button>
+        }
+        @if (notifications.error()) {
+          <p class="error" role="status">{{ notifications.error() | translate }}</p>
+        }
+      </section>
+    }
+
+    @if (inbox.role() === 'admin') {
+      <section class="panel compose-panel" aria-labelledby="compose-title">
+        <h2 id="compose-title">{{ 'MESSAGES.COMPOSE_TITLE' | translate }}</h2>
+        <form (ngSubmit)="publish()" #composeForm="ngForm">
+          <label for="message-title">{{ 'MESSAGES.SUBJECT' | translate }}</label>
+          <input
+            id="message-title"
+            name="title"
+            required
+            maxlength="80"
+            [(ngModel)]="title"
+            [disabled]="inbox.saving()"
+          />
+          <label for="message-body">{{ 'MESSAGES.BODY' | translate }}</label>
+          <textarea
+            id="message-body"
+            name="body"
+            required
+            maxlength="2000"
+            rows="5"
+            [(ngModel)]="body"
+            [disabled]="inbox.saving()"
+          ></textarea>
+          <span class="character-count">{{ body.length }} / 2000</span>
+          <button
+            type="submit"
+            [disabled]="
+              composeForm.invalid ||
+              !title.trim() ||
+              !body.trim() ||
+              inbox.saving() ||
+              !inbox.online()
+            "
+          >
+            {{ (inbox.saving() ? 'MESSAGES.SAVING' : 'MESSAGES.PUBLISH') | translate }}
+          </button>
+        </form>
+        @if (savedId()) {
+          <div class="publish-result" role="status">
+            <p>{{ 'MESSAGES.SAVED' | translate }}</p>
+            <a
+              class="dashboard-link"
+              href="https://dashboard.onesignal.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'MESSAGES.OPEN_NOTIFICATIONS' | translate }} ↗
+            </a>
+          </div>
+        }
+        <p class="hint">{{ 'MESSAGES.MANUAL_NOTIFICATION' | translate }}</p>
+      </section>
+    }
+
+    @if (inbox.error()) {
+      <p class="error" role="alert">{{ inbox.error() | translate }}</p>
+    }
+    <section class="message-list" aria-labelledby="history-title">
+      <header class="history-heading">
+        <h2 id="history-title">{{ 'MESSAGES.HISTORY' | translate }}</h2>
+        @if (inbox.unread() > 0) {
+          <span class="unread-count">{{
+            'MESSAGES.UNREAD_COUNT' | translate: { count: inbox.unread() }
+          }}</span>
+        }
+      </header>
+      @if (!inbox.online()) {
+        <p class="status" role="status">{{ 'MESSAGES.OFFLINE' | translate }}</p>
+      } @else if (inbox.fromCache()) {
+        <p class="status" role="status">{{ 'MESSAGES.CACHED' | translate }}</p>
+      }
+      @if (inbox.loading()) {
+        <p class="status" role="status">{{ 'MESSAGES.LOADING' | translate }}</p>
+      } @else {
+        @for (message of inbox.messages(); track message.id) {
+          <details
+            class="message-card"
+            [class.unread]="!message.readAt"
+            [attr.id]="'message-' + message.id"
+            (toggle)="onMessageToggle($event, message)"
+          >
+            <summary>
+              <span class="message-title">{{ message.title }}</span>
+              <span class="message-meta">
+                <time [attr.datetime]="message.createdAt?.toISOString()">{{
+                  formatDate(message.createdAt)
+                }}</time>
+                @if (message.pending) {
+                  <span>{{ 'MESSAGES.PENDING' | translate }}</span>
+                } @else {
+                  <span>{{ (message.readAt ? 'MESSAGES.READ' : 'MESSAGES.NEW') | translate }}</span>
+                }
+              </span>
+            </summary>
+            <p class="message-body">{{ message.body }}</p>
+          </details>
+        } @empty {
+          <div class="panel empty-state">
+            <span class="heart" aria-hidden="true">♡</span>
+            <p>{{ 'MESSAGES.EMPTY' | translate }}</p>
+          </div>
+        }
+      }
+    </section>
+  }
+</main>

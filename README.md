@@ -148,6 +148,20 @@ El idioma se obtiene automáticamente del navegador: se utiliza inglés cuando e
 
 ## Personalización
 
+### Mensajitos privados y sincronización
+
+La ruta `/#/mensajes` incluye inicio de sesión con correo y contraseña, un panel para
+que el administrador publique mensajes y un historial para el destinatario. Firestore
+conserva la copia en la nube y su caché local permite leer los mensajes descargados sin
+conexión. Las notificaciones se activan en el teléfono del destinatario y se envían
+manualmente desde OneSignal Free después de guardar el mensaje.
+
+Consulta [la configuración paso a paso](docs/MESSAGES_SETUP.md) para crear Firebase
+Spark, las dos cuentas, publicar las reglas y conectar OneSignal. La configuración
+pública está en `src/app/config/messages.config.ts`; mientras esté vacía, el buzón no
+se conecta a ningún servicio. Esta integración no habilita facturación ni utiliza
+Cloud Functions.
+
 ### Acceso directo instalable (PWA)
 
 El acceso directo se llama **♥️** y abre la carta como aplicación, sin la barra de direcciones. El ícono inicial es un sobre con corazón; puedes sustituirlo cuando elijas una imagen.
