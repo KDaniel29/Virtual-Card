@@ -16,6 +16,7 @@
     "@angular/core": "20.3.27",
     "@angular/platform-browser": "20.3.27",
     "@angular/router": "^20.3.27",
+    "@angular/service-worker": "20.3.27",
     "@ngx-translate/core": "^18.0.0",
     "@ngx-translate/http-loader": "^18.0.0",
     "rxjs": "~7.8.0",

@@ -2,6 +2,18 @@
   "APP": {
     "TITLE": "Nuestra pequeña historia"
   },
+  "PWA": {
+    "TITLE": "Esta carta, siempre cerquita",
+    "DESCRIPTION": "Guárdala en tu pantalla de inicio para volver cuando quieras. ♡",
+    "INSTALL": "Añadir a mi celular",
+    "INSTALLING": "Abriendo instalación…",
+    "CLOSE": "Cerrar aviso de instalación",
+    "LATER": "Ahora no",
+    "HOW_TO": "Cómo añadir esta carta",
+    "IOS": "Abre esta página en Safari, pulsa Compartir y elige Añadir a pantalla de inicio. Confirma el nombre y pulsa Añadir.",
+    "BROWSER": "Abre el menú de tu navegador y busca Instalar aplicación o Añadir a pantalla de inicio. Si no aparece, prueba abrir esta página en Chrome o Edge.",
+    "ERROR": "No se pudo abrir la instalación. Puedes intentarlo desde el menú de tu navegador."
+  },
   "LANGUAGE": {
     "LABEL": "Seleccionar idioma",
     "QUESTION": "¿Cuál idioma quiere ver señorita?",

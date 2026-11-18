@@ -23,6 +23,7 @@
           },
           "configurations": {
             "production": {
+              "serviceWorker": "ngsw-config.json",
               "outputHashing": "all",
               "budgets": [{ "type": "initial", "maximumWarning": "1MB", "maximumError": "2MB" }]
             },

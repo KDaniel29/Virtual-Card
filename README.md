@@ -148,6 +148,23 @@ El idioma se obtiene automáticamente del navegador: se utiliza inglés cuando e
 
 ## Personalización
 
+### Acceso directo instalable (PWA)
+
+El acceso directo se llama **♥️** y abre la carta como aplicación, sin la barra de direcciones. El ícono inicial es un sobre con corazón; puedes sustituirlo cuando elijas una imagen.
+
+- **Nombre:** modifica `name` y `short_name` en `public/manifest.webmanifest`. Mantén el mismo valor en `apple-mobile-web-app-title` de `src/index.html` para iPhone. El título de la pestaña conserva su traducción independiente en `APP.TITLE`.
+- **Ícono:** reemplaza los PNG de `public/assets/icons/`: `icon-192.png` (192 × 192), `icon-512.png` (512 × 512), `icon-maskable-512.png` (512 × 512, fondo opaco y dibujo dentro del círculo central del 80 %) y `apple-touch-icon.png` (180 × 180).
+- **Generar los tamaños en Windows:** ejecuta `powershell -NoProfile -File scripts/generate-pwa-icons.ps1 -SourcePath "C:\ruta\mi-icono.png"`. Admite PNG y JPEG, ajusta la imagen sin deformarla y deja margen para los recortes. Sin `-SourcePath`, restaura el sobre con corazón.
+- **Colores:** `theme_color` y `background_color` están en el manifiesto; sincroniza `theme-color` en `src/index.html`.
+
+La invitación aparece como un modal centrado 1.5 segundos después de cargar la página, sin ocupar espacio en el contenido. Ofrece el diálogo nativo cuando el navegador lo permite. En iPhone muestra los pasos de Safari: **Compartir → Añadir a pantalla de inicio → Añadir**. Puede cerrarse con **Ahora no**, la **×**, la tecla **Escape** o pulsando el fondo; al cerrarlo no vuelve a aparecer durante esa sesión de la pestaña. Se oculta al abrir la aplicación instalada.
+
+El service worker oficial de Angular se activa en producción. Guarda la aplicación y ambos idiomas al instalarse; las imágenes se guardan conforme se visitan. **La música y las fuentes externas requieren conexión**, y la primera visita también. Una versión nueva se descarga en segundo plano y se utiliza al volver a abrir la aplicación; evita forzar una recarga durante la lectura o la reproducción.
+
+Para probarlo, ejecuta `npm run build` y sirve `dist/carta-virtual/browser` con un servidor estático en `localhost`. `npm start` mantiene desactivado el service worker para facilitar el desarrollo. En un celular, utiliza la versión publicada con **HTTPS**; una dirección HTTP de la red local no habilita la instalación completa. El workflow existente de GitHub Pages ya compila la PWA y sus rutas relativas funcionan bajo el nombre del repositorio.
+
+Después de cambiar el nombre o el ícono, publica una nueva compilación. Los accesos directos existentes pueden tardar en actualizarse; para comprobar el cambio de inmediato, elimina el acceso anterior y vuelve a añadirlo.
+
 ### Imágenes y GIF
 
 Coloca los recursos en:

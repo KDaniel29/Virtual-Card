@@ -2,6 +2,18 @@
   "APP": {
     "TITLE": "Our little story"
   },
+  "PWA": {
+    "TITLE": "Keep this letter close",
+    "DESCRIPTION": "Save it to your home screen and come back whenever you like. ♡",
+    "INSTALL": "Add to my phone",
+    "INSTALLING": "Opening installation…",
+    "CLOSE": "Close installation notice",
+    "LATER": "Not now",
+    "HOW_TO": "How to add this letter",
+    "IOS": "Open this page in Safari, tap Share, then Add to Home Screen. Confirm the name and tap Add.",
+    "BROWSER": "Open your browser menu and look for Install app or Add to Home Screen. If neither appears, try opening this page in Chrome or Edge.",
+    "ERROR": "Installation could not be opened. You can try again from your browser menu."
+  },
   "LANGUAGE": {
     "LABEL": "Select language",
     "QUESTION": "Which language would you like to see, miss?",

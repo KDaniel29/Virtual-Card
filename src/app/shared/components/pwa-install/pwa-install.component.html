@@ -1,0 +1,37 @@
+<dialog
+  #installDialog
+  class="install-card"
+  aria-labelledby="install-title"
+  aria-describedby="install-description"
+  (cancel)="onCancel($event)"
+  (click)="onBackdropClick($event)"
+>
+  <button
+    type="button"
+    class="close-button"
+    autofocus
+    [attr.aria-label]="'PWA.CLOSE' | translate"
+    (click)="dismiss()"
+  >
+    <span aria-hidden="true">×</span>
+  </button>
+  <img src="assets/icons/icon-192.png" alt="" width="52" height="52" />
+  <h2 id="install-title">{{ 'PWA.TITLE' | translate }}</h2>
+  <p id="install-description">{{ 'PWA.DESCRIPTION' | translate }}</p>
+  @if (pwa.canInstall() || pwa.installing()) {
+    <button type="button" (click)="pwa.install()" [disabled]="pwa.installing()">
+      {{ (pwa.installing() ? 'PWA.INSTALLING' : 'PWA.INSTALL') | translate }}
+    </button>
+  } @else {
+    <details>
+      <summary>{{ 'PWA.HOW_TO' | translate }}</summary>
+      <p>{{ (pwa.isIos ? 'PWA.IOS' : 'PWA.BROWSER') | translate }}</p>
+    </details>
+  }
+  @if (pwa.failed()) {
+    <p role="status">{{ 'PWA.ERROR' | translate }}</p>
+  }
+  <button type="button" class="later-button" (click)="dismiss()">
+    {{ 'PWA.LATER' | translate }}
+  </button>
+</dialog>
